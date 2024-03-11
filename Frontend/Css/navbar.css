@@ -1,0 +1,17 @@
+.bg-primary-red {
+  background-color: #c0304f;
+}
+
+.illustration-footer {
+  bottom: -50px;
+  right: 0px;
+  transform: translate(0%);
+}
+
+.footer-section {
+  font-size: 18px;
+  background: url("../images/navbar/footer.png") no-repeat;
+  background-position: 100% 50%;
+  background-size: cover;
+  color: white;
+}/*# sourceMappingURL=navbar.css.map */

@@ -1,0 +1,23 @@
+.pagination {
+  width: 89%;
+}
+
+.w-80 {
+  width: 73%;
+}
+
+.articleHeading {
+  border-left: 4px solid #c0304f;
+}
+
+.featured {
+  top: 8%;
+  left: 3%;
+}
+
+#pagination .page-item.active a.page-link,
+#pagination .page-item.active a.page-link:hover {
+  background-color: #c0304f;
+  border-color: #c0304f;
+  color: white;
+}/*# sourceMappingURL=style.css.map */
