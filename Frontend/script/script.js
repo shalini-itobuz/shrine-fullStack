@@ -1,3 +1,4 @@
+//church section
 document.addEventListener("DOMContentLoaded", function() {
     var imagesWithInfo = [
       { src: "../images/church/baptismFirst.png", heading: "Baptism Sunday of church", paragraph: " Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/church/girlFirst.png", smallParagraph: "~2 min read" },
@@ -145,4 +146,101 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   });
+});
+
+
+
+
+//see our all event
+
+
+//people
+const data = [
+  {
+    image: "../images/people/vonda.png",
+    logo: "../images/people/share.png",
+    name: "John Doe",
+    description: "Lorem ipsum "
+  },
+  {
+    image: "../images/people/ronie.png",
+    logo: "../images/people/share.png",
+    name: "Alice Smith",
+    description: "Sed do "
+  },
+  {
+    image: "../images/people/lori.png",
+    logo: "../images/people/share.png",
+    name: "Mark Johnson",
+    description: "Ut enim"
+  },
+  {
+    image: "../images/people/annie.png",
+    logo: "../images/people/share.png",
+    name: "Emily Brown",
+    description: "Duis aute"
+  }
+];
+const personSection = document.getElementById('personSection');
+
+data.forEach(person => {
+  const personCard = document.createElement('div');
+  personCard.classList.add('person-card');
+
+  const personImage = document.createElement('img');
+  personImage.src = person.image;
+
+  const personContainer = document.createElement('div');
+  personContainer.classList.add('person-container');
+
+  const personDetails = document.createElement('div');
+  personDetails.classList.add('person-details');
+
+  const personName = document.createElement('div');
+  personName.classList.add('person-name');
+  personName.textContent = person.name;
+
+  const description = document.createElement('p');
+  description.textContent = person.description;
+
+  const logo = document.createElement('img');
+  logo.classList.add('logo');
+  logo.src = person.logo;
+
+  const socialIcons = document.createElement('ul');
+  socialIcons.classList.add('social-icons');
+  socialIcons.innerHTML = `
+    <li><img src="facebook.png" alt="Facebook"></li>
+    <li><img src="instagram.png" alt="Instagram"></li>
+    <li><img src="twitter.png" alt="Twitter"></li>
+  `;
+
+  logo.addEventListener('click', function() {
+    const activeLogo = document.querySelector('.active-logo');
+    if (activeLogo !== logo) {
+      if (activeLogo) {
+        activeLogo.classList.remove('active-logo');
+      }
+      logo.classList.add('active-logo');
+    }
+
+    const activeSocialIcons = personCard.querySelector('.social-icons');
+    if (activeSocialIcons.style.visibility === 'hidden') {
+      activeSocialIcons.style.visibility = 'visible';
+    } else {
+      activeSocialIcons.style.visibility = 'hidden';
+    }
+  });
+
+  personDetails.appendChild(personName);
+  personDetails.appendChild(description);
+
+  personContainer.appendChild(logo);
+  personContainer.appendChild(personDetails);
+
+  personCard.appendChild(personImage);
+  personCard.appendChild(personContainer);
+  personCard.appendChild(socialIcons); 
+
+  personSection.appendChild(personCard);
 });

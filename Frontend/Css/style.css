@@ -1,3 +1,7 @@
+.bg-cream {
+  background-color: #f6f2eb;
+}
+
 .pagination {
   width: 89%;
 }
@@ -13,6 +17,11 @@
 .featured {
   top: 8%;
   left: 3%;
+  width: 100%;
+}
+
+.bench {
+  width: 100%;
 }
 
 #pagination .page-item.active a.page-link,
@@ -20,4 +29,178 @@
   background-color: #c0304f;
   border-color: #c0304f;
   color: white;
+}
+
+.hero .row > div:nth-child(1) {
+  order: 0;
+}
+.hero .row > div:nth-child(1) > div {
+  border: 1px solid var(--light-brown);
+  border-radius: 50% 50% 0 0;
+}
+.hero .row > div:nth-child(1) .button-nav {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.hero .row > div:nth-child(1) .button-nav img {
+  width: 50%;
+  height: 50%;
+}
+.hero .row > div:nth-child(2) {
+  order: 4;
+}
+.hero .row > div:nth-child(3) {
+  order: 3;
+}
+.hero .row > div:nth-child(3) > div.statue {
+  border: 1px solid var(--light-brown);
+  border-radius: 50% 50% 0 0;
+}
+.hero .donate .large-text {
+  font-size: 50px;
+  font-style: italic;
+}
+.hero .donate .separator {
+  width: 1px;
+  height: 80px;
+  background-color: var(--light-brown);
+}
+.hero .donate p {
+  max-width: 500px;
+}
+.hero .donate .donate-logo {
+  width: 150px;
+  top: -40%;
+}
+.hero .donate .donate-logo img {
+  width: 100%;
+}
+
+.castle {
+  display: none;
+}
+
+.person-section {
+  display: flex;
+  gap: 4%;
+  justify-content: center;
+  align-items: center;
+}
+
+.person-card {
+  width: 200px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.person-card img {
+  width: 100%;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+
+.person-card .logo {
+  width: 35%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  margin-right: 2px;
+}
+
+.person-details {
+  text-align: left;
+  padding: 0 10px;
+  border-left: 2px solid rgb(210, 205, 205);
+}
+
+.person-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.person-container {
+  display: flex;
+}
+
+.active-logo {
+  filter: grayscale(0%);
+  background-color: magenta;
+}
+
+.social-icons {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  margin-top: 10px;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+@media (min-width: 768px) {
+  .featured {
+    width: 100%;
+  }
+  .hero .row > div:nth-child(2) {
+    order: 2;
+  }
+}
+.prince-the-lord .image {
+  display: block;
+  flex-grow: 1;
+}
+.prince-the-lord .text {
+  flex-grow: 1;
+}
+.prince-the-lord .text h2 {
+  border-left: 5px solid rgb(184, 10, 10);
+  max-width: 400px;
+}
+.prince-the-lord .text .logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px dashed var(--light-brown);
+}
+
+@media (min-width: 1024px) {
+  .castle {
+    display: block;
+  }
+  .articleBench {
+    position: relative;
+    width: 50%;
+  }
+  .bench {
+    width: 100%;
+  }
+  .featured {
+    position: absolute;
+    width: 75%;
+    background-color: white;
+    opacity: 0.9;
+    top: -1%;
+  }
+  .subscribeSection {
+    left: 50%;
+    top: -19%;
+    border: 2px solid gray;
+    border-radius: 20px;
+    padding: 0;
+  }
+}
+@media (min-width: 1440px) {
+  .featured {
+    top: 8%;
+    width: 50%;
+  }
+  .subscribeSection {
+    left: 44%;
+    top: 8%;
+    border: 2px solid gray;
+    border-radius: 20px;
+  }
 }/*# sourceMappingURL=style.css.map */
