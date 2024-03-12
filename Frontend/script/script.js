@@ -159,25 +159,25 @@ const data = [
   {
     image: "../images/people/vonda.png",
     logo: "../images/people/share.png",
-    name: "John Doe",
+    name: "Vonda",
     description: "Lorem ipsum "
   },
   {
     image: "../images/people/ronie.png",
     logo: "../images/people/share.png",
-    name: "Alice Smith",
+    name: "Ronnie",
     description: "Sed do "
   },
   {
     image: "../images/people/lori.png",
     logo: "../images/people/share.png",
-    name: "Mark Johnson",
+    name: "Lori",
     description: "Ut enim"
   },
   {
     image: "../images/people/annie.png",
     logo: "../images/people/share.png",
-    name: "Emily Brown",
+    name: "Annie",
     description: "Duis aute"
   }
 ];
@@ -225,10 +225,10 @@ data.forEach(person => {
     }
 
     const activeSocialIcons = personCard.querySelector('.social-icons');
-    if (activeSocialIcons.style.visibility === 'hidden') {
-      activeSocialIcons.style.visibility = 'visible';
-    } else {
+    if (activeSocialIcons.style.visibility === 'visible') {
       activeSocialIcons.style.visibility = 'hidden';
+    } else {
+      activeSocialIcons.style.visibility = 'visible';
     }
   });
 
@@ -243,4 +243,93 @@ data.forEach(person => {
   personCard.appendChild(socialIcons); 
 
   personSection.appendChild(personCard);
+});
+// //mission
+// const cardData = [
+//   {
+//     logo: "Logo 1",
+//     heading: "Heading 1",
+//     paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+//     moreContent: "Additional content for card 1."
+//   },
+//   {
+//     logo: "Logo 2",
+//     heading: "Heading 2",
+//     paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+//     moreContent: "Additional content for card 2."
+//   },
+//   {
+//     logo: "Logo 3",
+//     heading: "Heading 3",
+//     paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+//     moreContent: "Additional content for card 3."
+//   },
+//   {
+//     logo: "Logo 4",
+//     heading: "Heading 4",
+//     paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+//     moreContent: "Additional content for card 4."
+//   }
+// ];
+
+// const cardsContainer = document.getElementById('missioncards-container');
+
+// // Function to create card elements
+// function createCard(cardData) {
+//   const card = document.createElement('div');
+//   card.classList.add('missioncard');
+
+//   const logo = document.createElement('div');
+//   logo.textContent = cardData.logo;
+
+//   const heading = document.createElement('h2');
+//   heading.textContent = cardData.heading;
+
+//   const paragraph = document.createElement('p');
+//   paragraph.textContent = cardData.paragraph;
+
+//   const button = document.createElement('button');
+//   button.textContent = 'Read More';
+//   button.addEventListener('click', function() {
+//     button.textContent = 'Hide';
+//     const moreContent = document.createElement('p');
+//     moreContent.textContent = cardData.moreContent;
+//     moreContent.classList.add('read-more');
+//     card.appendChild(moreContent);
+//     button.removeEventListener('click', arguments.callee);
+//     button.addEventListener('click', function() {
+//       moreContent.classList.toggle('read-more');
+//       if (button.textContent === 'Read More') {
+//         button.textContent = 'Hide';
+//       } else {
+//         button.textContent = 'Read More';
+//       }
+//     });
+//   });
+
+//   const cardContent = document.createElement('div');
+//   cardContent.classList.add('card-content');
+//   cardContent.appendChild(logo);
+//   cardContent.appendChild(heading);
+//   cardContent.appendChild(paragraph);
+//   cardContent.appendChild(button);
+
+//   card.appendChild(cardContent);
+//   cardsContainer.appendChild(card);
+// }
+
+// // Create cards
+// cardData.forEach(createCard);
+
+document.querySelectorAll('.read-more-btn').forEach(button => {
+  button.addEventListener('click', function() {
+    const additionalContent = this.nextElementSibling;
+    if (additionalContent.style.display === 'none' || additionalContent.style.display === '') {
+      additionalContent.style.display = 'block';
+      this.textContent = 'Read less \u25B2';
+    } else {
+      additionalContent.style.display = 'none';
+      this.textContent = 'Read more \u25BC';
+    }
+  });
 });

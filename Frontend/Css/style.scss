@@ -1,6 +1,7 @@
-.bg-cream{
+.bg-cream {
     background-color: #f6f2eb;
 }
+
 .pagination {
     width: 89%;
 }
@@ -9,18 +10,39 @@
     width: 73%
 }
 
-.articleHeading {
+.w-60 {
+    width: 60%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.joinUs {
+    width: 100%;
+}
+
+.bg-peachpink {
+    background-color: #ffe6e0;
+}
+
+.bg-magenta {
+    background-color: #c0304f;
+}
+
+.articleHeading,
+.missionHeading {
     border-left: 4px solid #c0304f;
 }
 
 .featured {
     top: 8%;
     left: 3%;
-    width:100%;
+    width: 100%;
 }
 
-.bench{
-    width:100%;
+.bench {
+    width: 100%;
 }
 
 #pagination .page-item.active a.page-link,
@@ -93,7 +115,8 @@
         }
     }
 }
-.castle{
+
+.castle {
     display: none;
 }
 
@@ -102,128 +125,295 @@
     gap: 4%;
     justify-content: center;
     align-items: center;
-  }
-  .person-card {
-    width: 200px;
+    overflow-x: scroll;
+}
+
+.person-card {
+    width: 63%;
     margin-bottom: 20px;
     text-align: center;
-  }
-  .person-card img {
+}
+
+.person-card img {
     width: 100%;
     border-radius: 30px;
     margin-bottom: 10px;
-  }
-  .person-card .logo {
+}
+
+.person-card .logo {
     width: 35%;
     margin: 0 auto;
     margin-bottom: 10px;
     margin-right: 2px;
-  }
-  .person-details {
+}
+
+.person-details {
     text-align: left;
     padding: 0 10px;
     border-left: 2px solid rgb(210, 205, 205);
 
-  }
-  .person-name {
+}
+
+.person-name {
     font-weight: bold;
     margin-bottom: 5px;
-  }
- .person-container{
+}
+
+.person-container {
     display: flex;
- }
- .active-logo {
+}
+
+.active-logo {
     filter: grayscale(0%);
-    background-color: magenta;
-  }
-  .social-icons {
+    // background-color: magenta;
+}
+
+.social-icons {
     list-style-type: none;
     padding: 0;
     display: flex;
     margin-top: 10px;
-  }
-  .social-icons img {
+    visibility: hidden;
+}
+
+.social-icons img {
     width: 30px;
     height: 30px;
     margin-right: 5px;
-  }
-
-@media(min-width:768px){
-.featured{
-    width:100%;
 }
-.hero {
-    .row {
-        &>div:nth-child(2) {
-            order: 2;
+
+.membersLine {
+    width: 40%;
+    height: 1px;
+    background-color: rgb(196, 191, 191);
+}
+
+.overlap-container {
+    position: relative;
+}
+
+.overlap-container img {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.overlap-container img:nth-child(2),
+.overlap-container img:nth-child(3),
+.overlap-container img:nth-child(4),
+.overlap-container img:nth-child(1) {
+    display: none;
+
+}
+
+.bridges {
+    width: 91%;
+}
+
+.potential .potential-image {
+    width: 100%;
+    height: 100%;
+    max-height: 350px;
+}
+
+
+.missioncard {
+    width: 240px;
+    height: 240px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.missioncard:hover {
+    border-radius: 50px;
+    background-color: #ffe6e0;
+}
+
+.read-more-btn:hover {
+    color: #c0304f;
+}
+
+.missionHeading,
+.missionPara {
+    width: 100%;
+}
+
+.missionIcon {
+    width: 20%;
+}
+
+@media(min-width:768px) {
+    .featured {
+        width: 100%;
+    }
+
+    .person-card {
+        width: 20%;
+    }
+
+    .missionHeading {
+        width: 40%;
+    }
+
+    .missionPara {
+        width: 40%;
+    }
+
+    .hero {
+        .row {
+            &>div:nth-child(2) {
+                order: 2;
+            }
         }
     }
-}
 
-}
 
-//we call prince the lord
+    .overlap-container img:nth-child(2),
+    .overlap-container img:nth-child(3),
+    .overlap-container img:nth-child(4),
+    .overlap-container img:nth-child(1) {
+        display: block;
 
-.prince-the-lord {
-.image {
-    display: block;
-    flex-grow: 1;
-}
-
-.text {
-    flex-grow: 1;
-
-    h2 {
-        border-left: 5px solid rgb(184, 10, 10);
-        max-width: 400px;
     }
 
-    .logo {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        border: 2px dashed var(--light-brown);
+    .overlap-container img:nth-child(1) {
+        z-index: 4;
+        top: 0;
+        left: 0;
     }
-}
+
+    .overlap-container img:nth-child(2) {
+        z-index: 3;
+        top: 40px;
+        left: 3px;
+    }
+
+    .overlap-container img:nth-child(3) {
+        z-index: 2;
+        top: 80px;
+        left: 3px;
+    }
+
+    .overlap-container img:nth-child(4) {
+        z-index: 1;
+        top: 120px;
+        left: 3px;
+    }
+
+    //we call prince the lord
+
+    .prince-the-lord {
+        .image {
+            display: block;
+            flex-grow: 1;
+        }
+
+        .text {
+            flex-grow: 1;
+
+            h2 {
+                border-left: 5px solid rgb(184, 10, 10);
+                max-width: 400px;
+            }
+
+            .logo {
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                border: 2px dashed var(--light-brown);
+            }
+        }
+
+
+    }
 
 
 }
 
-@media(min-width:1024px){
-    .castle{
+@media(min-width:1024px) {
+    .castle {
         display: block;
     }
-.articleBench{
-    position: relative;
-    width:50%;
-}
-.bench{
-    width:100%;
-}
-.featured{
-    position:absolute;
-    width:75%;
-    background-color: #ffff;
-    opacity:0.9;
-    top:-1%;
-}
-.subscribeSection{
-    left:50%;
-    top:-19%;
-    border: 2px solid gray;
-    border-radius: 20px;
-    padding:0;
+
+    .articleBench {
+        position: relative;
+        width: 50%;
+    }
+
+    .bench {
+        width: 100%;
+    }
+
+    .featured {
+        position: absolute;
+        width: 75%;
+        background-color: #ffff;
+        opacity: 0.9;
+        top: -1%;
+    }
+
+    .subscribeSection {
+        left: 50%;
+        top: -19%;
+        border: 2px solid gray;
+        border-radius: 20px;
+        padding: 0;
+    }
+
+    .joinUs {
+        width: 25%;
+    }
+
+    .overlap-container img:nth-child(2),
+    .overlap-container img:nth-child(3),
+    .overlap-container img:nth-child(4),
+    .overlap-container img:nth-child(1) {
+        display: block;
+
+    }
+
+    .overlap-container img:nth-child(1) {
+        z-index: 4;
+        top: 0;
+        left: 0;
+    }
+
+    .overlap-container img:nth-child(2) {
+        z-index: 3;
+        top: 2px;
+        left: 50px;
+    }
+
+    .overlap-container img:nth-child(3) {
+        z-index: 2;
+        top: 3px;
+        left: 100px;
+    }
+
+    .overlap-container img:nth-child(4) {
+        z-index: 1;
+        top: 3px;
+        left: 150px;
+    }
+
+    .bridges {
+        width: 80%;
+    }
 }
 
-}
-@media(min-width:1440px){
-    .featured{
-     top:8%;
-     width:50%;
+@media(min-width:1440px) {
+    .featured {
+        top: 8%;
+        width: 50%;
     }
-    .subscribeSection{
-        left:44%;
-        top:8%;
+
+    .subscribeSection {
+        left: 44%;
+        top: 8%;
         border: 2px solid gray;
         border-radius: 20px;
     }

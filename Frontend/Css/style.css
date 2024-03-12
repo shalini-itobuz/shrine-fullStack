@@ -10,7 +10,28 @@
   width: 73%;
 }
 
-.articleHeading {
+.w-60 {
+  width: 60%;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.joinUs {
+  width: 100%;
+}
+
+.bg-peachpink {
+  background-color: #ffe6e0;
+}
+
+.bg-magenta {
+  background-color: #c0304f;
+}
+
+.articleHeading,
+.missionHeading {
   border-left: 4px solid #c0304f;
 }
 
@@ -86,10 +107,11 @@
   gap: 4%;
   justify-content: center;
   align-items: center;
+  overflow-x: scroll;
 }
 
 .person-card {
-  width: 200px;
+  width: 63%;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -124,7 +146,6 @@
 
 .active-logo {
   filter: grayscale(0%);
-  background-color: magenta;
 }
 
 .social-icons {
@@ -132,6 +153,7 @@
   padding: 0;
   display: flex;
   margin-top: 10px;
+  visibility: hidden;
 }
 
 .social-icons img {
@@ -140,32 +162,128 @@
   margin-right: 5px;
 }
 
+.membersLine {
+  width: 40%;
+  height: 1px;
+  background-color: rgb(196, 191, 191);
+}
+
+.overlap-container {
+  position: relative;
+}
+
+.overlap-container img {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.overlap-container img:nth-child(2),
+.overlap-container img:nth-child(3),
+.overlap-container img:nth-child(4),
+.overlap-container img:nth-child(1) {
+  display: none;
+}
+
+.bridges {
+  width: 91%;
+}
+
+.potential .potential-image {
+  width: 100%;
+  height: 100%;
+  max-height: 350px;
+}
+
+.missioncard {
+  width: 240px;
+  height: 240px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.missioncard:hover {
+  border-radius: 50px;
+  background-color: #ffe6e0;
+}
+
+.read-more-btn:hover {
+  color: #c0304f;
+}
+
+.missionHeading,
+.missionPara {
+  width: 100%;
+}
+
+.missionIcon {
+  width: 20%;
+}
+
 @media (min-width: 768px) {
   .featured {
     width: 100%;
   }
+  .person-card {
+    width: 20%;
+  }
+  .missionHeading {
+    width: 40%;
+  }
+  .missionPara {
+    width: 40%;
+  }
   .hero .row > div:nth-child(2) {
     order: 2;
   }
+  .overlap-container img:nth-child(2),
+  .overlap-container img:nth-child(3),
+  .overlap-container img:nth-child(4),
+  .overlap-container img:nth-child(1) {
+    display: block;
+  }
+  .overlap-container img:nth-child(1) {
+    z-index: 4;
+    top: 0;
+    left: 0;
+  }
+  .overlap-container img:nth-child(2) {
+    z-index: 3;
+    top: 40px;
+    left: 3px;
+  }
+  .overlap-container img:nth-child(3) {
+    z-index: 2;
+    top: 80px;
+    left: 3px;
+  }
+  .overlap-container img:nth-child(4) {
+    z-index: 1;
+    top: 120px;
+    left: 3px;
+  }
+  .prince-the-lord .image {
+    display: block;
+    flex-grow: 1;
+  }
+  .prince-the-lord .text {
+    flex-grow: 1;
+  }
+  .prince-the-lord .text h2 {
+    border-left: 5px solid rgb(184, 10, 10);
+    max-width: 400px;
+  }
+  .prince-the-lord .text .logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px dashed var(--light-brown);
+  }
 }
-.prince-the-lord .image {
-  display: block;
-  flex-grow: 1;
-}
-.prince-the-lord .text {
-  flex-grow: 1;
-}
-.prince-the-lord .text h2 {
-  border-left: 5px solid rgb(184, 10, 10);
-  max-width: 400px;
-}
-.prince-the-lord .text .logo {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: 2px dashed var(--light-brown);
-}
-
 @media (min-width: 1024px) {
   .castle {
     display: block;
@@ -190,6 +308,38 @@
     border: 2px solid gray;
     border-radius: 20px;
     padding: 0;
+  }
+  .joinUs {
+    width: 25%;
+  }
+  .overlap-container img:nth-child(2),
+  .overlap-container img:nth-child(3),
+  .overlap-container img:nth-child(4),
+  .overlap-container img:nth-child(1) {
+    display: block;
+  }
+  .overlap-container img:nth-child(1) {
+    z-index: 4;
+    top: 0;
+    left: 0;
+  }
+  .overlap-container img:nth-child(2) {
+    z-index: 3;
+    top: 2px;
+    left: 50px;
+  }
+  .overlap-container img:nth-child(3) {
+    z-index: 2;
+    top: 3px;
+    left: 100px;
+  }
+  .overlap-container img:nth-child(4) {
+    z-index: 1;
+    top: 3px;
+    left: 150px;
+  }
+  .bridges {
+    width: 80%;
   }
 }
 @media (min-width: 1440px) {
