@@ -31,7 +31,9 @@
 }
 
 .articleHeading,
-.missionHeading {
+.missionHeading,
+.growHeading,
+.satisfactionHeading {
   border-left: 4px solid #c0304f;
 }
 
@@ -194,23 +196,51 @@
   max-height: 350px;
 }
 
-.missioncard {
-  width: 240px;
-  height: 240px;
-  background-color: #fff;
-  border-radius: 10px;
-  margin: 5px;
-  padding: 10px;
-  text-align: center;
+.girlImg {
+  width: 100%;
+}
+
+.satisfaction .text .title {
+  max-width: 350px;
+}
+.satisfaction .text p {
+  max-width: 500px;
+}
+.satisfaction .missions .mission p {
+  max-width: 200px;
+}
+.satisfaction .missions .mission .arrow {
+  border: 1px solid grey;
+  border-radius: 50%;
+}
+.satisfaction .missions .mission:hover {
+  background-color: #FFE6E0;
+  border-radius: 50px 50px 50px 0px;
+}
+.satisfaction .missions .mission:hover .read-more {
+  display: block !important;
+}
+.satisfaction .missions .mission:hover .arrow {
+  background-color: #C0304F;
+}
+
+.grow-stronger > div {
+  flex: 1;
+}
+.grow-stronger .text .title {
+  max-width: 400px;
+}
+.grow-stronger .text .points span {
   display: inline-block;
-  vertical-align: top;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
 }
-
-.missioncard:hover {
-  border-radius: 50px;
-  background-color: #ffe6e0;
+.grow-stronger .image .hand {
+  left: -20%;
+  bottom: -10%;
 }
-
 .read-more-btn:hover {
   color: #c0304f;
 }
@@ -227,6 +257,11 @@
 @media (min-width: 768px) {
   .featured {
     width: 100%;
+  }
+  .subscribeSection {
+    width: 50%;
+    left: 5%;
+    top: 2%;
   }
   .person-card {
     width: 20%;
@@ -297,20 +332,23 @@
   }
   .featured {
     position: absolute;
-    width: 75%;
+    width: 60%;
     background-color: white;
     opacity: 0.9;
-    top: -1%;
+    top: 5%;
   }
   .subscribeSection {
-    left: 50%;
-    top: -19%;
-    border: 2px solid gray;
+    left: 52%;
+    top: 4%;
+    border: 2px solid rgb(244, 240, 240);
     border-radius: 20px;
     padding: 0;
   }
   .joinUs {
     width: 25%;
+  }
+  .girlImg {
+    width: 60%;
   }
   .overlap-container img:nth-child(2),
   .overlap-container img:nth-child(3),

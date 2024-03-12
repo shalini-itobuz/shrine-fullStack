@@ -321,15 +321,3 @@ data.forEach(person => {
 // // Create cards
 // cardData.forEach(createCard);
 
-document.querySelectorAll('.read-more-btn').forEach(button => {
-  button.addEventListener('click', function() {
-    const additionalContent = this.nextElementSibling;
-    if (additionalContent.style.display === 'none' || additionalContent.style.display === '') {
-      additionalContent.style.display = 'block';
-      this.textContent = 'Read less \u25B2';
-    } else {
-      additionalContent.style.display = 'none';
-      this.textContent = 'Read more \u25BC';
-    }
-  });
-});
