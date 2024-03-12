@@ -6,6 +6,11 @@
   width: 89%;
 }
 
+#energise-your-life,
+#faith-in-action {
+  border: 2px solid rgb(218, 214, 214);
+}
+
 .w-80 {
   width: 73%;
 }
@@ -28,6 +33,34 @@
 
 .bg-magenta {
   background-color: #c0304f;
+}
+
+.bird {
+  top: -40%;
+  left: -6%;
+}
+
+.feather,
+.candle,
+.scorpio {
+  display: none;
+}
+
+.crown {
+  width: 20%;
+  left: 37%;
+  top: -5%;
+}
+
+.garland {
+  width: 30%;
+  top: 100%;
+}
+
+.baby {
+  width: 15%;
+  left: -15%;
+  top: 50%;
 }
 
 .articleHeading,
@@ -54,11 +87,26 @@
   color: white;
 }
 
+.churchBackground {
+  display: none;
+}
+
+.pegion {
+  display: none;
+}
+
+.gate {
+  display: none;
+}
+
+.hero {
+  background-color: var(--bg-yellow);
+}
 .hero .row > div:nth-child(1) {
   order: 0;
 }
 .hero .row > div:nth-child(1) > div {
-  border: 1px solid var(--light-brown);
+  border: 1px solid gray;
   border-radius: 50% 50% 0 0;
 }
 .hero .row > div:nth-child(1) .button-nav {
@@ -77,7 +125,7 @@
   order: 3;
 }
 .hero .row > div:nth-child(3) > div.statue {
-  border: 1px solid var(--light-brown);
+  border: 1px solid gray;
   border-radius: 50% 50% 0 0;
 }
 .hero .donate .large-text {
@@ -87,7 +135,7 @@
 .hero .donate .separator {
   width: 1px;
   height: 80px;
-  background-color: var(--light-brown);
+  background-color: gray;
 }
 .hero .donate p {
   max-width: 500px;
@@ -124,11 +172,17 @@
   margin-bottom: 10px;
 }
 
+.person-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .person-card .logo {
-  width: 35%;
-  margin: 0 auto;
+  width: 15%;
+  height: 5%;
   margin-bottom: 10px;
-  margin-right: 2px;
+  margin-right: 12px;
 }
 
 .person-details {
@@ -259,6 +313,18 @@
   .featured {
     width: 100%;
   }
+  .gate {
+    display: block;
+    left: -10%;
+    width: 20%;
+    top: -5%;
+  }
+  .churchBackground {
+    display: block;
+    left: -10%;
+    top: 50%;
+    width: 20%;
+  }
   .subscribeSection {
     width: 50%;
     left: 5%;
@@ -317,12 +383,34 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    border: 2px dashed var(--light-brown);
+    border: 2px dashed gray;
   }
 }
 @media (min-width: 1024px) {
   .castle {
     display: block;
+  }
+  .feather {
+    display: block;
+    right: -10%;
+    top: 50%;
+  }
+  .scorpio {
+    display: block;
+    right: -5%;
+    width: 20%;
+  }
+  .pegion {
+    display: block;
+    right: -10%;
+    width: 25%;
+    top: 20%;
+  }
+  .candle {
+    display: block;
+    left: -10%;
+    width: 20%;
+    top: 50%;
   }
   .articleBench {
     position: relative;

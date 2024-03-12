@@ -1,22 +1,22 @@
 //church section
-document.addEventListener("DOMContentLoaded", function() {
-    var imagesWithInfo = [
-      { src: "../images/church/baptismFirst.png", heading: "Baptism Sunday of church", paragraph: " Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/church/girlFirst.png", smallParagraph: "~2 min read" },
-      { src: "../images/church/baptismSecond.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/church/girlSecond.png", smallParagraph: "~2 min read" },
-      { src: "../images/church/baptismThird.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/church/girlThird.png", smallParagraph: "~2 min read" },
-      { src: "../images/church/baptismSecond.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/church/girlSecond.png", smallParagraph: "~2 min read" },
-      { src: "../images/church/baptismThird.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/church/girlThird.png", smallParagraph: "~2 min read" },
-      { src: "../images/church/baptismFirst.png", heading: "Baptism Sunday of church", paragraph: " Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/church/girlFirst.png", smallParagraph: "~2 min read" },
-      { src: "../images/church/baptismFirst.png", heading: "Baptism Sunday of church", paragraph: " Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/church/girlFirst.png", smallParagraph: "~2 min read" },
-      { src: "../images/church/baptismSecond.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/church/girlSecond.png", smallParagraph: "~2 min read" },
-      { src: "../images/church/baptismThird.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/church/girlThird.png", smallParagraph: "~2 min read" },
-      { src: "../images/church/baptismSecond.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/church/girlSecond.png", smallParagraph: "~2 min read" },
-      { src: "../images/church/baptismThird.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/church/girlThird.png", smallParagraph: "~2 min read" },
-      { src: "../images/church/baptismFirst.png", heading: "Baptism Sunday of church", paragraph: " Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/church/girlFirst.png", smallParagraph: "~2 min read" },
-      
-      
-    ];
-    var currentPage = 1;
+document.addEventListener("DOMContentLoaded", function () {
+  const imagesWithInfo = [
+    { src: "../images/home/church/baptismFirst.png", heading: "Baptism Sunday of church", paragraph: " Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlFirst.png", smallParagraph: "~2 min read" },
+    { src: "../images/home/church/baptismSecond.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlSecond.png", smallParagraph: "~2 min read" },
+    { src: "../images/home/church/baptismThird.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlThird.png", smallParagraph: "~2 min read" },
+    { src: "../images/home/church/baptismSecond.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlSecond.png", smallParagraph: "~2 min read" },
+    { src: "../images/home/church/baptismThird.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlThird.png", smallParagraph: "~2 min read" },
+    { src: "../images/home/church/baptismFirst.png", heading: "Baptism Sunday of church", paragraph: " Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlFirst.png", smallParagraph: "~2 min read" },
+    { src: "../images/home/church/baptismFirst.png", heading: "Baptism Sunday of church", paragraph: " Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlFirst.png", smallParagraph: "~2 min read" },
+    { src: "../images/home/church/baptismSecond.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlSecond.png", smallParagraph: "~2 min read" },
+    { src: "../images/home/church/baptismThird.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlThird.png", smallParagraph: "~2 min read" },
+    { src: "../images/home/church/baptismSecond.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlSecond.png", smallParagraph: "~2 min read" },
+    { src: "../images/home/church/baptismThird.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlThird.png", smallParagraph: "~2 min read" },
+    { src: "../images/home/church/baptismFirst.png", heading: "Baptism Sunday of church", paragraph: " Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlFirst.png", smallParagraph: "~2 min read" },
+
+
+  ];
+  var currentPage = 1;
   var imagesPerPage = 3;
 
   function displayImages(page) {
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function updateActivePagination(clickedPage) {
     var paginationItems = document.querySelectorAll("#pagination .page-item");
-    paginationItems.forEach(function(item) {
+    paginationItems.forEach(function (item) {
       item.classList.remove("active");
     });
     clickedPage.parentNode.classList.add("active");
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
   displayPagination();
 
   // Pagination click event
-  document.getElementById("pagination").addEventListener("click", function(event) {
+  document.getElementById("pagination").addEventListener("click", function (event) {
     event.preventDefault();
     var target = event.target;
     if (target.tagName === "A") {
@@ -157,26 +157,26 @@ document.addEventListener("DOMContentLoaded", function() {
 //people
 const data = [
   {
-    image: "../images/people/vonda.png",
-    logo: "../images/people/share.png",
+    image: "../images/home/people/vonda.png",
+    logo: "../images/home/people/share.png",
     name: "Vonda",
     description: "Lorem ipsum "
   },
   {
-    image: "../images/people/ronie.png",
-    logo: "../images/people/share.png",
+    image: "../images/home/people/ronie.png",
+    logo: "../images/home/people/share.png",
     name: "Ronnie",
     description: "Sed do "
   },
   {
-    image: "../images/people/lori.png",
-    logo: "../images/people/share.png",
+    image: "../images/home/people/lori.png",
+    logo: "../images/home/people/share.png",
     name: "Lori",
     description: "Ut enim"
   },
   {
-    image: "../images/people/annie.png",
-    logo: "../images/people/share.png",
+    image: "../images/home/people/annie.png",
+    logo: "../images/home/people/share.png",
     name: "Annie",
     description: "Duis aute"
   }
@@ -210,12 +210,13 @@ data.forEach(person => {
   const socialIcons = document.createElement('ul');
   socialIcons.classList.add('social-icons');
   socialIcons.innerHTML = `
-    <li><img src="facebook.png" alt="Facebook"></li>
-    <li><img src="instagram.png" alt="Instagram"></li>
-    <li><img src="twitter.png" alt="Twitter"></li>
+    <li><img src="../images/home/people/instagram.png" alt="Instagram"></li>
+    <li><img src="../images/home/people/google.png" alt="Google"></li>
+    <li><img src="../images/home/people/youtube.png" alt="Youtube"></li>
+
   `;
 
-  logo.addEventListener('click', function() {
+  logo.addEventListener('click', function () {
     const activeLogo = document.querySelector('.active-logo');
     if (activeLogo !== logo) {
       if (activeLogo) {
@@ -240,7 +241,7 @@ data.forEach(person => {
 
   personCard.appendChild(personImage);
   personCard.appendChild(personContainer);
-  personCard.appendChild(socialIcons); 
+  personCard.appendChild(socialIcons);
 
   personSection.appendChild(personCard);
 });
