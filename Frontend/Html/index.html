@@ -80,12 +80,12 @@
     <!--call prince the lord-->
     <section class="prince-the-lord container position-relative ">
         <img class="position-absolute churchBackground" src="../images/home/prince/church.png">
-        <div class="d-flex flex-column flex-lg-row gap-5 p-5">
+        <div class="d-flex flex-column flex-lg-row gap-5 p-0 p-md-5">
             <div class=" image p-2">
                 <img class="castle" src="../images/home/prince/castle.png" alt="">
             </div>
             <div class="text p-2">
-                <h2 class="p-3 fs-1">We call prince the lord</h2>
+                <h2 class="p-3 fs-1 lordHeading ">We call prince the lord</h2>
                 <p>A long established fact that a reader will be distracted by the readable content of a page when
                     looking.</p>
                 <div class="d-flex p-4">
@@ -194,9 +194,10 @@
     <!--mission-->
     <section class="satisfaction container mb-3 position-relative ">
         <img class="position-absolute feather" src="../images/home/mission/feather.png">
-        <div class="text d-flex flex-column flex-md-row gap-5 align-items-center justify-content-between">
+        <div class=" d-flex flex-column flex-md-row gap-5 align-items-center justify-content-between">
             <div class="title satisfactionHeading fs-2 fw-semibold ps-3 px-5">Your satisfaction is our mission</div>
-            <p class="p-5">A long established fact that a reader will be distracted by the readable content of a page
+            <p class="p-1 p-md-5">A long established fact that a reader will be distracted by the readable content of a
+                page
                 when looking.A
                 long
                 established fact that.A long .</p>
@@ -290,24 +291,41 @@
     </section>
 
     <!--people-->
-    <section class="mt-5 position-relative mt-5 p-5 ">
-        <img class="position-absolute crown" src="../images/home/people/crown.png">
-        <div class="d-flex justify-content-between align-items-center mb-5 w-75 m-auto  ">
-            <div class="w-50 display-6 ps-2 fw-semibold  articleHeading">Feel god closer to your members</div>
-            <div class="w-50">A long established fact that a reader will be distracted by the readable content of a page
-                when looking.A long established fact that.A long.</div>
+
+    <section class="members container">
+        <div class="crown text-center">
+            <img class="w-100" src="../images/home/people/crown.svg" alt="">
         </div>
-        <div class="person-section d-flex m-auto container flex-column flex-md-row justify-content-center "
-            id="personSection">
+        <div class="text d-flex flex-column justify-content-center align-items-center flex-md-row">
+            <div class="title  d-flex justify-content-center ">
+                <h2 class="ps-3 fs-2 fw-semibold satisfactionHeading ">Feel God Closer To
+                    Your Members</h2>
+            </div>
+            <div class="para">
+                <p>A long established fact that a reader will be distracted by the readable content of a page when
+                    looking.A long
+                    established fact that.A long.</p>
+            </div>
         </div>
-        <div class="container d-flex justify-content-center align-items-center mt-5 position-relative  ">
-            <div class="membersLine"></div>
-            <button class="p-2 bg-black text-white ">All team members</button>
-            <div class="membersLine"></div>
-            <img class="position-absolute garland" src="../images/home/people/garland.png">
+        <div class="all-members d-flex flex-wrap p-4 gap-4 justify-content-center" id="members-div"></div>
+        <div class="button d-flex justify-content-center  align-items-center">
+            <hr class="w-25">
+            <button class="border-0 rounded bg-dark text-white p-3">ALL TEAM MEMBERS</button>
+            <hr class="w-25">
+        </div>
+        <div class="flower text-center">
+            <img class="w-100" src="../images/home/people/flower.svg" alt="">
         </div>
     </section>
+    <!--events-->
 
+    <div class="carousel-container mt-5 py-5">
+        <div class="carousel" id="carouselContainer"></div>
+        <div class="buttons-container">
+            <button class="button" id="prevButton">&#60 </button>
+            <button class="button" id="nextButton">&#62</button>
+        </div>
+    </div>
     <!--our latest article-->
     <section class="latest article w-80 m-auto mt-5 position-relative ">
         <img class="position-absolute baby" src="../images/home/article/baby.png">
@@ -330,15 +348,16 @@
                     <div class="mt-3">6 th March 2023</div>
                 </div>
             </div>
-            <div class="bg-white position-absolute subscribeSection p-4">
-                <h1 class="text-center mb-3">Subscribe</h1>
-                <p class="text-center mb-3">Enter your email below to subscribe to our newsletter:</p>
+            <div class="bg-white position-absolute subscribeSection ">
+                <h1 class=" mb-3">Subscribe</h1>
+                <p class=" mb-3">A long established fact that a reader will be distracted by the readable.A
+                    long.</p>
                 <form action="#" method="post">
                     <div class="form-group mb-4">
                         <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block mb-3">Subscribe</button>
+                        <button type="submit" class="btn bg-black p-3 text-white  mb-3">Subscribe</button>
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="agree" name="agree" required>

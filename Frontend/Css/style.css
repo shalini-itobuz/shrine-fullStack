@@ -46,12 +46,6 @@
   display: none;
 }
 
-.crown {
-  width: 20%;
-  left: 37%;
-  top: -5%;
-}
-
 .garland {
   width: 30%;
   top: 100%;
@@ -63,10 +57,50 @@
   top: 50%;
 }
 
+.members .text .title,
+.members .text .para {
+  flex: 1;
+}
+.members .text .title > h2,
+.members .text .para > h2 {
+  max-width: 350px;
+}
+.members .text .title > p,
+.members .text .para > p {
+  max-width: 450px;
+}
+.members .crown > img,
+.members .flower > img {
+  max-width: 500px;
+}
+.members .person-img img {
+  border-radius: 150px;
+}
+.members .separator {
+  height: 50px;
+  width: 2px;
+  background-color: var(--light-brown);
+}
+.members .socials {
+  visibility: hidden;
+}
+.members .share {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.members .memberInfo:hover .share {
+  background-color: #C0304F;
+}
+.members .memberInfo:hover .socials {
+  visibility: visible;
+}
+
 .articleHeading,
 .missionHeading,
 .growHeading,
-.satisfactionHeading {
+.satisfactionHeading,
+.lordHeading {
   border-left: 4px solid #c0304f;
 }
 
@@ -309,7 +343,118 @@
   width: 20%;
 }
 
+.carousel {
+  position: relative;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  margin-bottom: 20px;
+}
+
+.eventcard {
+  display: flex;
+  flex: 0 0 auto;
+  max-width: 300px;
+  border: 2px solid rgb(231, 227, 227);
+  align-items: center;
+  flex-direction: column;
+}
+
+.leftImage {
+  width: 100%;
+  height: 50%;
+}
+
+#prevButton .logoAndParaDiv {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.logoAndParaDiv {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+#prevButton,
+#nextButton {
+  border-radius: 50%;
+  color: black;
+  background-color: white;
+  padding: 1%;
+}
+
+#prevButton:hover,
+#nextButton:hover {
+  background-color: #C0304F;
+  color: white;
+}
+
+.eventparagraph {
+  margin: 0;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.eventlogo {
+  height: auto;
+  margin-right: 5px;
+}
+
+.eventtitle {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.cardContent {
+  width: 50%;
+}
+
+.joinbutton {
+  background-color: black;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 15px;
+}
+
+.buttons-container {
+  text-align: center;
+}
+
+.button {
+  margin: 0 10px;
+}
+
 @media (min-width: 768px) {
+  .eventcard {
+    display: flex;
+    flex: 0 0 auto;
+    max-width: 650px;
+    margin-right: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    scroll-snap-align: start;
+    gap: 30px;
+    border: 2px solid rgb(231, 227, 227);
+    align-items: center;
+    flex-direction: row;
+  }
+  .leftImage {
+    width: 30%;
+    height: 100%;
+  }
+  .buttons-container {
+    margin-top: 5%;
+  }
   .featured {
     width: 100%;
   }
@@ -325,10 +470,14 @@
     top: 50%;
     width: 20%;
   }
+  .person-card img {
+    width: 79%;
+  }
   .subscribeSection {
     width: 50%;
     left: 5%;
-    top: 2%;
+    top: 1%;
+    padding: 20px;
   }
   .person-card {
     width: 20%;
@@ -390,22 +539,6 @@
   .castle {
     display: block;
   }
-  .feather {
-    display: block;
-    right: -10%;
-    top: 50%;
-  }
-  .scorpio {
-    display: block;
-    right: -5%;
-    width: 20%;
-  }
-  .pegion {
-    display: block;
-    right: -10%;
-    width: 25%;
-    top: 20%;
-  }
   .candle {
     display: block;
     left: -10%;
@@ -424,14 +557,15 @@
     width: 60%;
     background-color: white;
     opacity: 0.9;
-    top: 5%;
+    top: -8%;
   }
   .subscribeSection {
     left: 52%;
-    top: 4%;
+    top: -18%;
     border: 2px solid rgb(244, 240, 240);
     border-radius: 20px;
-    padding: 0;
+    padding: 20px;
+    opacity: 0.9;
   }
   .joinUs {
     width: 25%;
@@ -474,10 +608,33 @@
     top: 8%;
     width: 50%;
   }
+  .pegion {
+    display: block;
+    right: -10%;
+    width: 25%;
+    top: 20%;
+  }
+  .feather {
+    display: block;
+    right: -10%;
+    top: 50%;
+  }
+  .scorpio {
+    display: block;
+    right: -5%;
+    width: 20%;
+  }
   .subscribeSection {
-    left: 44%;
-    top: 8%;
-    border: 2px solid gray;
-    border-radius: 20px;
+    padding: 60px;
+  }
+  .featured {
+    position: absolute;
+    width: 60%;
+    background-color: white;
+    opacity: 0.9;
+    top: 5%;
+  }
+  .subscribeSection {
+    top: 2%;
   }
 }/*# sourceMappingURL=style.css.map */

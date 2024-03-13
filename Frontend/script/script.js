@@ -155,170 +155,182 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //people
-const data = [
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const membersDiv = document.getElementById("members-div");
+  const membersData = await fetch(
+    "http://localhost:8000/api/home/churchpeople"
+  );
+  const members = await membersData.json();
+  members.forEach((member) => {
+    const card = document.createElement("div");
+    const imgDiv = document.createElement("div");
+    imgDiv.classList.add("person-img");
+    const img = document.createElement("img");
+    img.src = member.link;
+    imgDiv.appendChild(img);
+    card.appendChild(imgDiv);
+
+    const divFlex = document.createElement("div");
+    divFlex.classList.add(
+      "member-details",
+      "d-flex",
+      "justify-content-center",
+      "gap-4",
+      "align-items-center"
+    );
+
+    const share = document.createElement("div");
+    share.classList.add(
+      "share",
+      "d-flex",
+      "justify-content-center",
+      "align-items-center"
+    );
+    const shareImg = document.createElement("img");
+    shareImg.src = "../images/home/people/share.svg";
+    share.appendChild(shareImg);
+
+    const separator = document.createElement("div");
+    separator.classList.add("separator");
+
+    const nameDiv = document.createElement("div");
+    const name = document.createElement("div");
+    name.classList.add("fs-4", "fw-semibold");
+    name.innerText = member.name;
+    const smallName = document.createElement("p");
+    smallName.innerText = member.smallName;
+    nameDiv.append(name, smallName);
+
+    divFlex.append(share, separator, nameDiv);
+    //   card.appendChild(divFlex);
+
+    const socialsDiv = document.createElement("div");
+    socialsDiv.classList.add(
+      "socials",
+      "d-flex",
+      "justify-content-center",
+      "gap-4"
+    );
+    const instagram = document.createElement("div");
+    const instagramIcon = document.createElement("img");
+    instagramIcon.src = "../images/home/people/socials/instagram.svg";
+    instagram.appendChild(instagramIcon);
+    const google = document.createElement("div");
+    const googleIcon = document.createElement("img");
+    googleIcon.src = "../images/home/people/socials/google.svg";
+    google.appendChild(googleIcon);
+    const youtube = document.createElement("div");
+    const youtubeIcon = document.createElement("img");
+    youtubeIcon.src = "../images/home/people/socials/youtube.svg";
+    youtube.appendChild(youtubeIcon);
+    socialsDiv.append(instagram, google, youtube);
+
+    //   card.appendChild(socialsDiv);
+    const memberInfo = document.createElement("div");
+    memberInfo.classList.add("memberInfo");
+    memberInfo.append(divFlex, socialsDiv);
+    card.append(memberInfo);
+
+    membersDiv.appendChild(card);
+  });
+});
+
+//medidation
+const carouselData = [
   {
-    image: "../images/home/people/vonda.png",
-    logo: "../images/home/people/share.png",
-    name: "Vonda",
-    description: "Lorem ipsum "
+    image: '../images/home/events/ladyHands.png',
+    logos: ['../images/home/events/calendar.png', '../images/home/events/home.png', '../images/home/events/clock.png'],
+    paragraphs: ['24.12.2023-28.12.2023', 'Russian Federation St. Peter’s Church', '4:38-8:24'],
+    title: 'Mindfulness meditation',
+    details: 'A long established fact that a reader will be distracted by the readable content of...'
+  },  {
+    image: '../images/home/events/bible.png',
+    logos: ['../images/home/events/calendar.png', '../images/home/events/home.png', '../images/home/events/clock.png'],
+    paragraphs: ['24.12.2023-28.12.2023', 'The Positive Aura Seminar', '4:38-8:24'],
+    title: 'Mindfulness meditation',
+    details: 'A long established fact that a reader will be distracted by the readable content of...'
   },
   {
-    image: "../images/home/people/ronie.png",
-    logo: "../images/home/people/share.png",
-    name: "Ronnie",
-    description: "Sed do "
+    image: '../images/home/events/ladyHands.png',
+    logos: ['../images/home/events/calendar.png', '../images/home/events/home.png', '../images/home/events/clock.png'],
+    paragraphs: ['24.12.2023-28.12.2023', 'Russian Federation St. Peter’s Church', '4:38-8:24'],
+    title: 'Mindfulness meditation',
+    details: 'A long established fact that a reader will be distracted by the readable content of...'
+  },  {
+    image: '../images/home/events/bible.png',
+    logos: ['../images/home/events/calendar.png', '../images/home/events/home.png', '../images/home/events/clock.png'],
+    paragraphs: ['24.12.2023-28.12.2023', 'The Positive Aura Seminar', '4:38-8:24'],
+    title: 'Mindfulness meditation',
+    details: 'A long established fact that a reader will be distracted by the readable content of...'
   },
-  {
-    image: "../images/home/people/lori.png",
-    logo: "../images/home/people/share.png",
-    name: "Lori",
-    description: "Ut enim"
-  },
-  {
-    image: "../images/home/people/annie.png",
-    logo: "../images/home/people/share.png",
-    name: "Annie",
-    description: "Duis aute"
-  }
-];
-const personSection = document.getElementById('personSection');
+ ];
 
-data.forEach(person => {
-  const personCard = document.createElement('div');
-  personCard.classList.add('person-card');
+const carouselContainer = document.getElementById('carouselContainer');
+const prevButton = document.getElementById('prevButton');
+const nextButton = document.getElementById('nextButton');
 
-  const personImage = document.createElement('img');
-  personImage.src = person.image;
+// Loop through the data and create card elements
+carouselData.forEach(cardData => {
+  const card = document.createElement('div');
+  card.classList.add('eventcard');
 
-  const personContainer = document.createElement('div');
-  personContainer.classList.add('person-container');
+  const image = document.createElement('img');
+  image.src = cardData.image;
+  image.alt = 'Image';
+  image.classList.add("leftImage")
+  card.appendChild(image);
 
-  const personDetails = document.createElement('div');
-  personDetails.classList.add('person-details');
+  const content = document.createElement('div');
+  content.classList.add("CardContent");
 
-  const personName = document.createElement('div');
-  personName.classList.add('person-name');
-  personName.textContent = person.name;
+  cardData.logos.forEach((logo, index) => {
+    const logoAndParaDiv = document.createElement('div');
+    logoAndParaDiv.classList.add('logoAndParaDiv');
 
-  const description = document.createElement('p');
-  description.textContent = person.description;
+    const logoImg = document.createElement('img');
+    logoImg.src = logo;
+    logoImg.alt = 'Logo';
+    logoImg.classList.add('eventlogo');
+    logoAndParaDiv.appendChild(logoImg);
 
-  const logo = document.createElement('img');
-  logo.classList.add('logo');
-  logo.src = person.logo;
+    const paragraph = document.createElement('p');
+    paragraph.textContent = cardData.paragraphs[index];
+    paragraph.classList.add("eventparagraph")
+    logoAndParaDiv.appendChild(paragraph);
 
-  const socialIcons = document.createElement('ul');
-  socialIcons.classList.add('social-icons');
-  socialIcons.innerHTML = `
-    <li><img src="../images/home/people/instagram.png" alt="Instagram"></li>
-    <li><img src="../images/home/people/google.png" alt="Google"></li>
-    <li><img src="../images/home/people/youtube.png" alt="Youtube"></li>
-
-  `;
-
-  logo.addEventListener('click', function () {
-    const activeLogo = document.querySelector('.active-logo');
-    if (activeLogo !== logo) {
-      if (activeLogo) {
-        activeLogo.classList.remove('active-logo');
-      }
-      logo.classList.add('active-logo');
-    }
-
-    const activeSocialIcons = personCard.querySelector('.social-icons');
-    if (activeSocialIcons.style.visibility === 'visible') {
-      activeSocialIcons.style.visibility = 'hidden';
-    } else {
-      activeSocialIcons.style.visibility = 'visible';
-    }
+    content.appendChild(logoAndParaDiv);
   });
 
-  personDetails.appendChild(personName);
-  personDetails.appendChild(description);
+  const title = document.createElement('p');
+  title.classList.add('eventtitle');
+  title.textContent = cardData.title;
+  content.appendChild(title);
 
-  personContainer.appendChild(logo);
-  personContainer.appendChild(personDetails);
+  const details = document.createElement('p');
+  details.textContent = cardData.details;
+  content.appendChild(details);
 
-  personCard.appendChild(personImage);
-  personCard.appendChild(personContainer);
-  personCard.appendChild(socialIcons);
+  const joinButton = document.createElement('button');
+  joinButton.classList.add('joinbutton');
+  joinButton.textContent = 'Join Now';
+  content.appendChild(joinButton);
 
-  personSection.appendChild(personCard);
+  card.appendChild(content);
+  carouselContainer.appendChild(card);
 });
-// //mission
-// const cardData = [
-//   {
-//     logo: "Logo 1",
-//     heading: "Heading 1",
-//     paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     moreContent: "Additional content for card 1."
-//   },
-//   {
-//     logo: "Logo 2",
-//     heading: "Heading 2",
-//     paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     moreContent: "Additional content for card 2."
-//   },
-//   {
-//     logo: "Logo 3",
-//     heading: "Heading 3",
-//     paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     moreContent: "Additional content for card 3."
-//   },
-//   {
-//     logo: "Logo 4",
-//     heading: "Heading 4",
-//     paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     moreContent: "Additional content for card 4."
-//   }
-// ];
 
-// const cardsContainer = document.getElementById('missioncards-container');
+// Event listeners for previous and next buttons
+prevButton.addEventListener('click', () => {
+  carouselContainer.scrollBy({
+    left: -280, 
+    behavior: 'smooth'
+  });
+});
 
-// // Function to create card elements
-// function createCard(cardData) {
-//   const card = document.createElement('div');
-//   card.classList.add('missioncard');
-
-//   const logo = document.createElement('div');
-//   logo.textContent = cardData.logo;
-
-//   const heading = document.createElement('h2');
-//   heading.textContent = cardData.heading;
-
-//   const paragraph = document.createElement('p');
-//   paragraph.textContent = cardData.paragraph;
-
-//   const button = document.createElement('button');
-//   button.textContent = 'Read More';
-//   button.addEventListener('click', function() {
-//     button.textContent = 'Hide';
-//     const moreContent = document.createElement('p');
-//     moreContent.textContent = cardData.moreContent;
-//     moreContent.classList.add('read-more');
-//     card.appendChild(moreContent);
-//     button.removeEventListener('click', arguments.callee);
-//     button.addEventListener('click', function() {
-//       moreContent.classList.toggle('read-more');
-//       if (button.textContent === 'Read More') {
-//         button.textContent = 'Hide';
-//       } else {
-//         button.textContent = 'Read More';
-//       }
-//     });
-//   });
-
-//   const cardContent = document.createElement('div');
-//   cardContent.classList.add('card-content');
-//   cardContent.appendChild(logo);
-//   cardContent.appendChild(heading);
-//   cardContent.appendChild(paragraph);
-//   cardContent.appendChild(button);
-
-//   card.appendChild(cardContent);
-//   cardsContainer.appendChild(card);
-// }
-
-// // Create cards
-// cardData.forEach(createCard);
-
+nextButton.addEventListener('click', () => {
+  carouselContainer.scrollBy({
+    left: 280, 
+    behavior: 'smooth'
+  });
+});
