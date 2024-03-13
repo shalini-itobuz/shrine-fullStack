@@ -1,4 +1,4 @@
-import { members } from "./Data/Homedata.js";
+import { members, imagesWithInfo,carouselData } from "./Data/Homedata.js";
 import express from "express";
 import cors from "cors";
 
@@ -9,6 +9,10 @@ app.use(cors());
 
 app.get("/api/home/churchpeople", (req, res) => {
   res.status(200).json(members);
+});
+
+app.get("/api/home/church", (req, res) => {
+  res.status(200).json(imagesWithInfo);
 });
 
 app.listen(port, () => {

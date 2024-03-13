@@ -1,62 +1,50 @@
 //church section
-document.addEventListener("DOMContentLoaded", function () {
-  const imagesWithInfo = [
-    { src: "../images/home/church/baptismFirst.png", heading: "Baptism Sunday of church", paragraph: " Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlFirst.png", smallParagraph: "~2 min read" },
-    { src: "../images/home/church/baptismSecond.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlSecond.png", smallParagraph: "~2 min read" },
-    { src: "../images/home/church/baptismThird.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlThird.png", smallParagraph: "~2 min read" },
-    { src: "../images/home/church/baptismSecond.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlSecond.png", smallParagraph: "~2 min read" },
-    { src: "../images/home/church/baptismThird.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlThird.png", smallParagraph: "~2 min read" },
-    { src: "../images/home/church/baptismFirst.png", heading: "Baptism Sunday of church", paragraph: " Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlFirst.png", smallParagraph: "~2 min read" },
-    { src: "../images/home/church/baptismFirst.png", heading: "Baptism Sunday of church", paragraph: " Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlFirst.png", smallParagraph: "~2 min read" },
-    { src: "../images/home/church/baptismSecond.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlSecond.png", smallParagraph: "~2 min read" },
-    { src: "../images/home/church/baptismThird.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlThird.png", smallParagraph: "~2 min read" },
-    { src: "../images/home/church/baptismSecond.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlSecond.png", smallParagraph: "~2 min read" },
-    { src: "../images/home/church/baptismThird.png", heading: "Baptism Sunday of church", paragraph: "Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlThird.png", smallParagraph: "~2 min read" },
-    { src: "../images/home/church/baptismFirst.png", heading: "Baptism Sunday of church", paragraph: " Sir Gerry Serrano A long established fact that a reader will be distracted by the readable content of...", smallImageSrc: "../images/home/church/girlFirst.png", smallParagraph: "~2 min read" },
-
-
-  ];
-  var currentPage = 1;
-  var imagesPerPage = 3;
+document.addEventListener("DOMContentLoaded", async function () {
+  const churchData= await fetch("http://localhost:8000/api/home/church");
+const imagesWithInfo= await churchData.json();
+console.log(imagesWithInfo);
+  
+  let currentPage = 1;
+  let imagesPerPage = 3;
 
   function displayImages(page) {
-    var imageGrid = document.getElementById("image-grid");
+    const imageGrid = document.getElementById("image-grid");
     imageGrid.innerHTML = "";
-    var start = (page - 1) * imagesPerPage;
-    var end = start + imagesPerPage;
-    for (var i = start; i < end && i < imagesWithInfo.length; i++) {
-      var div = document.createElement("div");
+    let start = (page - 1) * imagesPerPage;
+    let end = start + imagesPerPage;
+    for (let i = start; i < end && i < imagesWithInfo.length; i++) {
+      const div = document.createElement("div");
       div.className = "col-md-3 me-3 mb-4 card border-gray p-0 ";
 
-      var img = document.createElement("img");
+      const img = document.createElement("img");
       img.src = imagesWithInfo[i].src;
       img.className = "card-img-top";
       div.appendChild(img);
 
-      var cardBody = document.createElement("div");
+      const cardBody = document.createElement("div");
       cardBody.className = "card-body";
 
-      var heading = document.createElement("h5");
+      const heading = document.createElement("h5");
       heading.className = "card-title";
       heading.textContent = imagesWithInfo[i].heading;
       cardBody.appendChild(heading);
 
-      var paragraph = document.createElement("p");
+      const paragraph = document.createElement("p");
       paragraph.className = "card-text";
       paragraph.textContent = imagesWithInfo[i].paragraph;
       cardBody.appendChild(paragraph);
 
-      var smallImageDiv = document.createElement("div");
+      const smallImageDiv = document.createElement("div");
       smallImageDiv.className = "d-flex align-items-center";
 
-      var smallImage = document.createElement("img");
+      const smallImage = document.createElement("img");
       smallImage.src = imagesWithInfo[i].smallImageSrc;
       smallImage.className = "rounded-circle mr-2";
       smallImage.style.width = "50px";
       smallImage.style.height = "50px";
       smallImageDiv.appendChild(smallImage);
 
-      var smallParagraph = document.createElement("p");
+      const smallParagraph = document.createElement("p");
       smallParagraph.className = "card-text";
       smallParagraph.textContent = imagesWithInfo[i].smallParagraph;
       smallImageDiv.appendChild(smallParagraph);
@@ -149,11 +137,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-
-//see our all event
-
-
 //people
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -203,7 +186,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     nameDiv.append(name, smallName);
 
     divFlex.append(share, separator, nameDiv);
-    //   card.appendChild(divFlex);
+      card.appendChild(divFlex);
 
     const socialsDiv = document.createElement("div");
     socialsDiv.classList.add(
@@ -226,7 +209,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     youtube.appendChild(youtubeIcon);
     socialsDiv.append(instagram, google, youtube);
 
-    //   card.appendChild(socialsDiv);
+      card.appendChild(socialsDiv);
     const memberInfo = document.createElement("div");
     memberInfo.classList.add("memberInfo");
     memberInfo.append(divFlex, socialsDiv);
@@ -235,6 +218,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     membersDiv.appendChild(card);
   });
 });
+
 
 //medidation
 const carouselData = [
