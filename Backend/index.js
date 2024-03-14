@@ -15,6 +15,10 @@ app.get("/api/home/church", (req, res) => {
   res.status(200).json(imagesWithInfo);
 });
 
+app.get("/api/home/meditation",(req,res)=>{
+  res.status(200).json(carouselData);
+})
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
