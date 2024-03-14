@@ -1,8 +1,10 @@
+
+
 //church section
 document.addEventListener("DOMContentLoaded", async function () {
   const churchData= await fetch("http://localhost:8000/api/home/church");
-const imagesWithInfo= await churchData.json();
-console.log(imagesWithInfo);
+const churchImage= await churchData.json();
+const imagesWithInfo=churchImage.message;
   
   let currentPage = 1;
   let imagesPerPage = 3;
@@ -144,7 +146,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const membersData = await fetch(
     "http://localhost:8000/api/home/churchpeople"
   );
-  const members = await membersData.json();
+  const members = (await membersData.json()).message;
   members.forEach((member) => {
     const card = document.createElement("div");
     const imgDiv = document.createElement("div");
@@ -171,7 +173,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       "align-items-center"
     );
     const shareImg = document.createElement("img");
-    shareImg.src = "../images/home/people/share.svg";
+    shareImg.src = "http://localhost:8000/images/home/people/share.svg";
     share.appendChild(shareImg);
 
     const separator = document.createElement("div");
@@ -197,15 +199,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     );
     const instagram = document.createElement("div");
     const instagramIcon = document.createElement("img");
-    instagramIcon.src = "../images/home/people/socials/instagram.svg";
+    instagramIcon.src = "http://localhost:8000/images/home/people/socials/instagram.svg";
     instagram.appendChild(instagramIcon);
     const google = document.createElement("div");
     const googleIcon = document.createElement("img");
-    googleIcon.src = "../images/home/people/socials/google.svg";
+    googleIcon.src = "http://localhost:8000/images/home/people/socials/google.svg";
     google.appendChild(googleIcon);
     const youtube = document.createElement("div");
     const youtubeIcon = document.createElement("img");
-    youtubeIcon.src = "../images/home/people/socials/youtube.svg";
+    youtubeIcon.src = "http://localhost:8000/images/home/people/socials/youtube.svg";
     youtube.appendChild(youtubeIcon);
     socialsDiv.append(instagram, google, youtube);
 
@@ -221,88 +223,67 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 //medidation
-const carouselData = [
-  {
-    image: '../images/home/events/ladyHands.png',
-    logos: ['../images/home/events/calendar.png', '../images/home/events/home.png', '../images/home/events/clock.png'],
-    paragraphs: ['24.12.2023-28.12.2023', 'Russian Federation St. Peter’s Church', '4:38-8:24'],
-    title: 'Mindfulness meditation',
-    details: 'A long established fact that a reader will be distracted by the readable content of...'
-  },  {
-    image: '../images/home/events/bible.png',
-    logos: ['../images/home/events/calendar.png', '../images/home/events/home.png', '../images/home/events/clock.png'],
-    paragraphs: ['24.12.2023-28.12.2023', 'The Positive Aura Seminar', '4:38-8:24'],
-    title: 'Mindfulness meditation',
-    details: 'A long established fact that a reader will be distracted by the readable content of...'
-  },
-  {
-    image: '../images/home/events/ladyHands.png',
-    logos: ['../images/home/events/calendar.png', '../images/home/events/home.png', '../images/home/events/clock.png'],
-    paragraphs: ['24.12.2023-28.12.2023', 'Russian Federation St. Peter’s Church', '4:38-8:24'],
-    title: 'Mindfulness meditation',
-    details: 'A long established fact that a reader will be distracted by the readable content of...'
-  },  {
-    image: '../images/home/events/bible.png',
-    logos: ['../images/home/events/calendar.png', '../images/home/events/home.png', '../images/home/events/clock.png'],
-    paragraphs: ['24.12.2023-28.12.2023', 'The Positive Aura Seminar', '4:38-8:24'],
-    title: 'Mindfulness meditation',
-    details: 'A long established fact that a reader will be distracted by the readable content of...'
-  },
- ];
-
 const carouselContainer = document.getElementById('carouselContainer');
 const prevButton = document.getElementById('prevButton');
 const nextButton = document.getElementById('nextButton');
-
-// Loop through the data and create card elements
-carouselData.forEach(cardData => {
-  const card = document.createElement('div');
-  card.classList.add('eventcard');
-
-  const image = document.createElement('img');
-  image.src = cardData.image;
-  image.alt = 'Image';
-  image.classList.add("leftImage")
-  card.appendChild(image);
-
-  const content = document.createElement('div');
-  content.classList.add("CardContent");
-
-  cardData.logos.forEach((logo, index) => {
-    const logoAndParaDiv = document.createElement('div');
-    logoAndParaDiv.classList.add('logoAndParaDiv');
-
-    const logoImg = document.createElement('img');
-    logoImg.src = logo;
-    logoImg.alt = 'Logo';
-    logoImg.classList.add('eventlogo');
-    logoAndParaDiv.appendChild(logoImg);
-
-    const paragraph = document.createElement('p');
-    paragraph.textContent = cardData.paragraphs[index];
-    paragraph.classList.add("eventparagraph")
-    logoAndParaDiv.appendChild(paragraph);
-
-    content.appendChild(logoAndParaDiv);
+let carouselData;
+async function getCarouselData(){
+carouselData=await fetch("http://localhost:8000/api/home/meditation");
+meditationData = await carouselData.json();
+carouselData=meditationData.message;
+return carouselData;
+}
+getCarouselData().then(()=>{
+  carouselData.forEach(cardData => {
+    const card = document.createElement('div');
+    card.classList.add('eventcard');
+  
+    const image = document.createElement('img');
+    image.src = cardData.image;
+    image.alt = 'Image';
+    image.classList.add("leftImage")
+    card.appendChild(image);
+  
+    const content = document.createElement('div');
+    content.classList.add("CardContent");
+  
+    cardData.logos.forEach((logo, index) => {
+      const logoAndParaDiv = document.createElement('div');
+      logoAndParaDiv.classList.add('logoAndParaDiv');
+  
+      const logoImg = document.createElement('img');
+      logoImg.src = logo;
+      logoImg.alt = 'Logo';
+      logoImg.classList.add('eventlogo');
+      logoAndParaDiv.appendChild(logoImg);
+  
+      const paragraph = document.createElement('p');
+      paragraph.textContent = cardData.paragraphs[index];
+      paragraph.classList.add("eventparagraph")
+      logoAndParaDiv.appendChild(paragraph);
+  
+      content.appendChild(logoAndParaDiv);
+    });
+  
+    const title = document.createElement('p');
+    title.classList.add('eventtitle');
+    title.textContent = cardData.title;
+    content.appendChild(title);
+  
+    const details = document.createElement('p');
+    details.textContent = cardData.details;
+    content.appendChild(details);
+  
+    const joinButton = document.createElement('button');
+    joinButton.classList.add('joinbutton');
+    joinButton.textContent = 'Join Now';
+    content.appendChild(joinButton);
+  
+    card.appendChild(content);
+    carouselContainer.appendChild(card);
   });
+})
 
-  const title = document.createElement('p');
-  title.classList.add('eventtitle');
-  title.textContent = cardData.title;
-  content.appendChild(title);
-
-  const details = document.createElement('p');
-  details.textContent = cardData.details;
-  content.appendChild(details);
-
-  const joinButton = document.createElement('button');
-  joinButton.classList.add('joinbutton');
-  joinButton.textContent = 'Join Now';
-  content.appendChild(joinButton);
-
-  card.appendChild(content);
-  carouselContainer.appendChild(card);
-});
 
 // Event listeners for previous and next buttons
 prevButton.addEventListener('click', () => {

@@ -14,3 +14,10 @@ export function homeRoutes(router){
 
     
 }
+
+// obj = {
+//     basePath: '/home',
+//     'home': {
+//         'churchpeople': () => basePath + '/churchpeople'
+//     }
+// }

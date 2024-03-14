@@ -1,0 +1,133 @@
+.br-10 {
+    border-radius: 10px;
+}
+
+.about {
+    width: 100%;
+}
+
+.aboutHome {
+    width: 90%;
+}
+
+.aboutInfo {
+    width: 90%;
+}
+
+.border-left-red {
+    border-left: 4px solid #c0304f;
+    height: 30px;
+
+}
+
+.bg-pink {
+    background-color: #ffe6e0;
+}
+
+.text-gray {
+    color: #7a7a82;
+}
+
+.walkingTogether {
+    width: 100%;
+}
+
+.border-left-red-walking {
+    border-left: 4px solid #c0304f;
+    height: 100px;
+}
+
+.card,
+.card-title {
+    background-color: #ffe6e0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 10px !important;
+}
+
+.card-text {
+    text-align: center;
+}
+
+.card img {
+    width: 30%;
+}
+
+.happy-prayers {
+    &>div {
+        flex: 1;
+    }
+
+    .girl {
+        border-radius: 500px;
+    }
+
+    .count {
+        background-color: #C0304F;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 10px solid white;
+
+        right: 10%;
+        bottom: 10%;
+
+        p {
+            font-size: 10px;
+        }
+    }
+
+    .number {
+        color: var(--bg-pink);
+        font-size: 80px;
+    }
+
+    .text>* {
+        max-width: 550px;
+    }
+}
+
+@media(min-width:768px) {
+    .about {
+        width: 90%;
+    }
+
+    .aboutHome {
+        width: 45%;
+    }
+
+    .aboutInfo {
+        width: 50%;
+    }
+
+    .walkingTogether {
+        width: 80%;
+    }
+
+    .walkingHeading {
+        width: 50%;
+    }
+
+    .walkingPara {
+        width: 40%;
+    }
+
+    .happy-prayers .count {
+        bottom: 35%;
+    }
+}
+
+@media(min-width:1024px) {
+    .happy-prayers .count {
+        bottom: 10%;
+    }
+}
+
+@media(min-width:1440px) {
+    .about {
+        width: 70%;
+    }
+
+
+}

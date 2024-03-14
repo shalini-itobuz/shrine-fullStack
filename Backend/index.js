@@ -1,13 +1,12 @@
-import { members, imagesWithInfo,carouselData } from "./Data/Homedata.js";
 import express from "express";
 import cors from "cors";
 import { manageRoutes } from "./controller/manageRoutes.js";
-import { statisticsData } from "./Data/aboutData.js";
 
 const app = express();
 const port = 8000;
 
 app.use(cors());
+app.use("/images", express.static("images"));
 app.use(manageRoutes());
 
 
@@ -16,15 +15,46 @@ app.use(manageRoutes());
 //   res.status(200).json(carouselData);
 // })
 
-// app.get('/api/about/happyCount', async (req, res) => {
-//   try{
-//       res.json({ happyCount });
-//   } catch (error) {
-//       res.status(500).json({ error: 'Internal Server Error' });
-//   }
-// });
 
+import nodemailer from 'nodemailer';
+app.use(express.json());
+app.post('/subscribe', async (req, res) => {
+  if (!req.body || !req.body.email) {
+    return res.status(400).send('Email is required');
+  }
 
-app.listen(port, () => {
-  console.log(`listening on port ${port}`);
+  const { email } = req.body;
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    host:'smtp.gmail.com',
+    port:465,
+    secure:true,
+    auth: {
+      user: 'shalini@itobuz.com',
+      pass: 'aall yhmq boqg hcfd'
+    }
+  });
+
+  const mailOptions = {
+    from: 'shalini@itobuz.com',
+    to: email,
+    subject: 'Subscription Confirmation',
+    text: 'Thank you for subscribing to our newsletter!'
+  };
+
+  try {
+    // Send email
+    await transporter.sendMail(mailOptions);
+    res.status(200).send('Email sent successfully');
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).send('Error sending email');
+  }
 });
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
