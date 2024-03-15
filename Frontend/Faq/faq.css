@@ -45,4 +45,27 @@
 
 .carousel-control:hover {
   background-color: #c0304f;
+}
+
+.border-left-red {
+  background-color: #c0304f;
+  height: 110px;
+  width: 5px;
+}
+
+.accordion-text {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, height 0.3s ease;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.accordion-text.show {
+  opacity: 1;
+  height: auto;
 }/*# sourceMappingURL=faq.css.map */
