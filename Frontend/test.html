@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Carousel</title>
+    <style>
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel {
+            position: relative;
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .carousel-control {
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="carousel-container">
+        <div class="carousel"></div>
+        <div class="carousel-controls">
+            <button class="prev carousel-control">&lt;</button>
+            <button class="next carousel-control">&gt;</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            const carouselContainer = document.querySelector('.carousel');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+
+            const images = [
+                "http://localhost:8000/images/home/church/scorpio.png",
+                "http://localhost:8000/images/home/church/scorpio.png",
+                "http://localhost:8000/images/home/church/scorpio.png",
+                "after2.jpg"
+            ];
+
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                carouselContainer.style.transform = `translateX(${-currentIndex * 100}%)`;
+            }
+
+            function goToNext() {
+                currentIndex = Math.min(currentIndex + 1, images.length - 1);
+                updateCarousel();
+            }
+
+            function goToPrev() {
+                currentIndex = Math.max(currentIndex - 1, 0);
+                updateCarousel();
+            }
+
+            prevBtn.addEventListener('click', goToPrev);
+            nextBtn.addEventListener('click', goToNext);
+
+            // Dynamically load images
+            images.forEach(image => {
+                const img = document.createElement('img');
+                img.src = image;
+                img.alt = image;
+                carouselContainer.appendChild(img);
+            });
+
+            // Initialize carousel position
+            updateCarousel();
+        });
+    </script>
+
+</body>
+
+</html>

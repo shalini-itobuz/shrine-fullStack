@@ -1,3 +1,48 @@
 .text-gray {
     color: #7a7a82;
 }
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-control {
+    cursor: pointer;
+    background-color: #25070d;
+    color: white;
+    border: none;
+    padding: 20px;
+    margin: 5px 0;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.carousel-control:hover {
+    background-color: #c0304f;
+}

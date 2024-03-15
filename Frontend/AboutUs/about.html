@@ -152,7 +152,79 @@
     </section>
 
     <!-- footer -->
-    <div id="footer"></div>
+    <!-- <div id="footer"></div> -->
+    <footer class="footer-section ">
+        <div
+            class="container border-secondary border-0 border-bottom border-1 p-3 d-flex flex-column align-items-start align-items-lg-end flex-md-row justify-content-between ">
+            <img src="http://localhost:8000/images/home/footer/shrine.png" alt="logo">
+            <p class="font-10 mt-3 font-mysecondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do<br
+                    class="d-none d-md-block" /> eiusmod tempor incididunt</p>
+        </div>
+
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-12 col-lg-8">
+                    <div class="row mx-auto">
+                        <div class="col-4">
+                            <h3 class="f2-bold font-10 text-white">Quick Links</h3>
+                            <h4 role="button" class="my-4 fs-5 ">Features</h4>
+                            <h4 role="button" class="my-4 fs-5">Pricing</h4>
+                            <h4 role="button" class="my-4 fs-5">Case Study</h4>
+                            <h4 role="button" class="my-4 fs-5">Reviews</h4>
+                            <h4 role="button" class="my-4 fs-5">Updates</h4>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="f2-bold font-10 text-white">Company</h3>
+                            <h4 role="button" class="my-4 fs-5">About</h4>
+                            <h4 role="button" class="my-4 fs-5">Contact Us</h4>
+                            <h4 role="button" class="my-4 fs-5">Careers</h4>
+                            <h4 role="button" class="my-4 fs-5">Culture</h4>
+                            <h4 role="button" class="my-4 fs-5">Blog</h4>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="f2-bold font-10 text-white">Support</h3>
+                            <h4 role="button" class="my-4 fs-5">Getting Started</h4>
+                            <h4 role="button" class="my-4 fs-5">Pricing</h4>
+                            <h4 role="button" class="my-4 fs-5">Help Center</h4>
+                            <h4 role="button" class="my-4 fs-5">Server Status</h4>
+                            <h4 role="button" class="my-4 fs-5">Report a bug</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 mt-5 mt-lg-0 d-flex flex-column align-items-center align-items-md-start ">
+                    <form id="subscribeForm">
+                        <h3 class="f2-bold fs-5 text-white">Subscribe to our news Letter</h3>
+                        <h4 class="my-4 fs-5 font-tertiary">Lorem ipsum dolor sit amet consectetur adipiscing elit
+                            aliquam.</h4>
+                        <input type="email" name="email" placeholder="Enter your email"
+                            class="bg-input border border-0 p-2 px-3 rounded rounded-3 focus-ring text-black"
+                            id="emailInput" style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), 0)">
+                        <button
+                            class="bg-primary-red border border-0 px-3 py-2 my-4 rounded rounded-3 text-white hover-icon"
+                            id="subscribeButton">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="container border-secondary border-0 border-top border-1 mt-4 p-2 d-flex flex-column flex-md-row justify-content-between align-items-center ">
+            <p class="my-4 font-10 font-tertiary">Copyright &#169; 2022 Shrine | All Rights Reserved </p>
+            <div class="d-flex gap-3 mb-5 mb-md-0">
+                <img role="button" src="http://localhost:8000/images/home/footer/instagram.png" alt="instagram"
+                    class="hover-icon">
+                <img role="button" src="http://localhost:8000/images/home/footer/twitter.png" alt="twitter"
+                    class="hover-icon">
+                <img role="button" src="http://localhost:8000/images/home/footer/whatsapp.png" alt="whatsapp"
+                    class="hover-icon">
+                <img role="button" src="http://localhost:8000/images/home/footer/youtube.png" alt="youtube"
+                    class="hover-icon">
+                <img role="button" src="http://localhost:8000/images/home/footer/facebook.svg" alt="facebook"
+                    class="hover-icon">
+            </div>
+        </div>
+
+    </footer>
 
 
 
@@ -163,11 +235,11 @@
                 document.getElementById('navbar').innerHTML = html;
             });
 
-        fetch('../Html/footer.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('footer').innerHTML = html;
-            });
+        // fetch('../Html/footer.html')
+        //     .then(response => response.text())
+        //     .then(html => {
+        //         document.getElementById('footer').innerHTML = html;
+        //     });
     </script>
     <script src="../script/footer.js"></script>
 
