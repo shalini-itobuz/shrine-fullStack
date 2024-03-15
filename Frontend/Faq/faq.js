@@ -43,40 +43,21 @@
 
 
 
-      //---------------------------------------------------------------------------
+     // ---------------------------------------------------------------------------
       const accordionContainerLeft = document.querySelector('#accordionLeft');
       const accordionContainerRight = document.querySelector('#accordionRight');
-      const accordionFAQs = [
-          {
-              title: "Who are the Disciples of Christ?",
-              subtitle: "A long established fact that a reader will be established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using."
-          },
-          {
-            title: "How big is the church?",
-            subtitle: "A long established fact that a reader will be established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using."
-        },   {
-            title: "What time is your Sunday service?",
-            subtitle: "A long established fact that a reader will be established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using."
-        },   {
-            title: "What do you offer  and toddlers?",
-            subtitle: "A long established fact that a reader will be established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using."
-        },   {
-            title: "Who goes to your church?",
-            subtitle: "A long established fact that a reader will be established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using."
-        },   {
-            title: "Can a visitor take communion?",
-            subtitle: "A long established fact that a reader will be established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using."
-        },   {
-            title: "Who are your ministers?",
-            subtitle: "A long established fact that a reader will be established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using."
-        },   {
-            title: "With whom do I talk know more?",
-            subtitle: "A long established fact that a reader will be established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using."
-        },   {
-              title: "Who  the Disciples of Christ?",
-              subtitle: "A long established fact that a reader will be established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using."
-          },
-      ]
+ 
+    async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:8000/api/about/faqQuestions');
+                const data = await response.json();
+                return data.message;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                return [];
+            }
+        }
+    
       const createAccordion = ({ title, subtitle, index }) => {
 
           const accordionWrapper = document.createElement('DIV');
@@ -109,11 +90,15 @@
           return accordionWrapper;
 
       }
-
-      accordionFAQs.forEach((faq, index) => {
-          if (index < 5) {
-              accordionContainerLeft.append(createAccordion({ ...faq, index }));
-          } else {
-              accordionContainerRight.append(createAccordion({ ...faq, index }));
-          }
-      })
+      async function populateAccordions() {
+            const accordionFAQs = await fetchData();
+            accordionFAQs.forEach((faq, index) => {
+                if (index < 5) {
+                    accordionContainerLeft.append(createAccordion({ ...faq, index }));
+                } else {
+                    accordionContainerRight.append(createAccordion({ ...faq, index }));
+                }
+            });
+        }
+    
+        populateAccordions();

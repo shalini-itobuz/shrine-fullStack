@@ -1,0 +1,80 @@
+#anchor {
+    text-decoration: none;
+    color: inherit;
+}
+
+.text-gray {
+    color: #7a7a82;
+}
+
+.border-left-red {
+    background-color: #c0304f;
+    height: 50px;
+    width: 5px;
+}
+
+.lord {
+    width: 15%;
+}
+
+.card img {
+    width: 100%;
+}
+
+.jesus {
+    width: 60%;
+}
+
+.label {
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.grid-container {
+    display: grid;
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card img {
+    max-width: 100%;
+}
+
+.label {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.grid-container {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .label {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-item-big {
+        grid-column: 1/span 2;
+    }
+
+    .label {
+        font-size: 20px;
+    }
+}

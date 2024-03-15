@@ -1,7 +1,4 @@
-console.log(document.getElementById('subscribeButton'))
-console.log("ihughogu");
 document.getElementById('subscribeForm').addEventListener('submit', async function(event) {
-    console.log('jhgjkhkgjgkf,,bkjhg');
     event.preventDefault();
     
     const emailInput = document.getElementById('emailInput').value;

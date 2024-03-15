@@ -1,0 +1,7 @@
+export const tabData = [
+    ["http://localhost:8000/images/gallery/tabs/glass.png", "http://localhost:8000/images/gallery/tabs/man.png", "http://localhost:8000/images/gallery/tabs/sunflower.png", "http://localhost:8000/images/gallery/tabs/boys.png", "http://localhost:8000/images/gallery/tabs/bookstand.png","http://localhost:8000/images/gallery/tabs/pavillion.png","http://localhost:8000/images/gallery/tabs/baby.png", "http://localhost:8000/images/gallery/tabs/rose.png", "http://localhost:8000/images/gallery/tabs/cross.png"],
+    ["http://localhost:8000/images/gallery/tabs/baby.png", "http://localhost:8000/images/gallery/tabs/rose.png", "http://localhost:8000/images/gallery/tabs/cross.png"],
+    ["http://localhost:8000/images/gallery/tabs/glass.png", "http://localhost:8000/images/gallery/tabs/man.png", "http://localhost:8000/images/gallery/tabs/baby.png", "http://localhost:8000/images/gallery/tabs/rose.png", "http://localhost:8000/images/gallery/tabs/cross.png","http://localhost:8000/images/gallery/tabs/bookstand.png","http://localhost:8000/images/gallery/tabs/pavillion.png"],
+    ["http://localhost:8000/images/gallery/tabs/baby.png", "http://localhost:8000/images/gallery/tabs/rose.png", "http://localhost:8000/images/gallery/tabs/cross.png","http://localhost:8000/images/gallery/tabs/bookstand.png","http://localhost:8000/images/gallery/tabs/pavillion.png"],
+    ["http://localhost:8000/images/gallery/tabs/bookstand.png","http://localhost:8000/images/gallery/tabs/pavillion.png"]
+];

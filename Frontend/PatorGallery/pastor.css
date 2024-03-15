@@ -1,0 +1,119 @@
+#anchor {
+  text-decoration: none;
+  color: inherit;
+}
+
+.border-left-red {
+  background-color: #c0304f;
+  height: 110px;
+  width: 5px;
+}
+
+.text-gray {
+  color: #7a7a82;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  gap: 30px;
+  transition: transform 0.5s ease;
+}
+
+.carousel img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-control {
+  cursor: pointer;
+  background-color: #25070d;
+  color: white;
+  border: none;
+  padding: 8px;
+  font-size: 23px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.carousel-control:hover {
+  background-color: #c0304f;
+}
+
+.members .text .title,
+.members .text .para {
+  flex: 1;
+}
+.members .text .title > h2,
+.members .text .para > h2 {
+  max-width: 350px;
+}
+.members .text .title > p,
+.members .text .para > p {
+  max-width: 450px;
+}
+.members .crown > img,
+.members .flower > img {
+  max-width: 500px;
+}
+.members .separator {
+  height: 50px;
+  width: 2px;
+}
+.members .socials {
+  visibility: hidden;
+}
+.members .share {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.members .memberInfo {
+  margin-top: 15px;
+}
+.members .memberInfo:hover .share {
+  background-color: #C0304F;
+}
+.members .memberInfo:hover .socials {
+  visibility: visible;
+}
+
+@media (min-width: 1024px) {
+  .carousel-controls {
+    position: absolute;
+    top: 30%;
+    right: 0%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .carousel-control {
+    cursor: pointer;
+    background-color: #25070d;
+    color: white;
+    border: none;
+    padding: 20px;
+    font-size: 23px;
+    text-align: center;
+    border-radius: 5px;
+  }
+}/*# sourceMappingURL=pastor.css.map */

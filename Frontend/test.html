@@ -4,126 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Accordions</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .accordion-text {
-            opacity: 0;
-            height: 0;
-            overflow: hidden;
-            transition: opacity 0.3s ease, height 0.3s ease;
-            position: absolute;
-            z-index: 1;
-            background-color: white;
-            border: 1px solid #ccc;
-            padding: 10px;
+    <title>Dynamic Card Images</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    .grid-container {
+        display: grid;
+        gap: 20px;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card img {
+        max-width: 100%;
+    }
+
+    .label {
+        margin-top: 10px;
+        text-align: center;
+    }
+    .grid-container {
+            grid-template-columns: repeat(1, 1fr);
         }
 
-        .accordion-text.show {
-            opacity: 1;
-            height: auto;
+
+    @media (min-width: 768px) {
+        .grid-container {
+            grid-template-columns: repeat(2, 1fr);
         }
-    </style>
-</head>
+    }
+
+    @media (min-width: 1024px) {
+        .grid-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+</style>
 
 <body>
-    <section class="container-md py-5">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="accordion" id="accordionLeft">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="accordion" id="accordionRight">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <section id="imageSection" class="grid-container"></section>
 
     <script>
-        const accordionContainerLeft = document.querySelector('#accordionLeft');
-        const accordionContainerRight = document.querySelector('#accordionRight');
-        // Function to create an accordion item
-        const accordionFAQs = [
-            {
-                title: "Accordion 1",
-                subtitle: "collapse plugin adds the appropriate classes that we use to style each element. These classescontrol the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the"
-            },
-            {
-                title: "Accordion 2",
-                subtitle: "collapse plugin adds the appropriate classes that we use to style each element. These classescontrol the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the"
-            },
-            {
-                title: "Accordion 3",
-                subtitle: "collapse plugin adds the appropriate classes that we use to style each element. These classescontrol the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the"
-            },
-            {
-                title: "Accordion 4",
-                subtitle: "collapse plugin adds the appropriate classes that we use to style each element. These classescontrol the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the"
-            },
-            {
-                title: "Accordion 5",
-                subtitle: "collapse plugin adds the appropriate classes that we use to style each element. These classescontrol the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the"
-            },
-            {
-                title: "Accordion 6",
-                subtitle: "collapse plugin adds the appropriate classes that we use to style each element. These classescontrol the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the"
-            },
-            {
-                title: "Accordion 7",
-                subtitle: "collapse plugin adds the appropriate classes that we use to style each element. These classescontrol the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the"
-            },
-            {
-                title: "Accordion 8",
-                subtitle: "collapse plugin adds the appropriate classes that we use to style each element. These classescontrol the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the"
-            },
-        ]
-        const createAccordion = ({ title, subtitle, index }) => {
+        const imageUrls = [
+            'image1.jpg',
+            'image2.jpg',
+            'image3.jpg',
+            'image4.jpg',
+            'image5.jpg',
+            'image6.jpg'
+        ];
 
-            const accordionWrapper = document.createElement('DIV');
-            accordionWrapper.setAttribute('class', 'accordion-item border-0 border-bottom flex-shrink-0');
+        // Array of image labels
+        const imageLabels = [
+            'Image 1',
+            'Image 2',
+            'Image 3',
+            'Image 4',
+            'Image 5',
+            'Image 6'
+        ];
 
-            const accordionTitle = document.createElement('H2');
-            accordionTitle.setAttribute('class', 'accordion-header');
-            accordionWrapper.appendChild(accordionTitle);
+        // Get reference to the section
+        const imageSection = document.getElementById('imageSection');
 
-            const accordionButton = document.createElement('BUTTON');
-            accordionButton.setAttribute('class', 'accordion-button collapsed');
-            accordionButton.setAttribute('type', 'button');
-            accordionButton.setAttribute('data-bs-toggle', 'collapse');
-            accordionButton.setAttribute('data-bs-target', `#collapse${index}`);
-            accordionButton.textContent = title;
-            accordionTitle.appendChild(accordionButton);
+        // Loop through imageUrls array
+        for (let i = 0; i < imageUrls.length; i++) {
+            // Create div element for each image and label
+            const card = document.createElement('div');
+            card.classList.add('card');
 
-            const accordionContentDiv = document.createElement('DIV');
-            accordionContentDiv.setAttribute('id', `collapse${index}`);
-            accordionContentDiv.setAttribute('class', 'accordion-collapse collapse');
-            accordionContentDiv.setAttribute('data-bs-parent', '#accordionExample');
-            accordionWrapper.appendChild(accordionContentDiv);
+            // Create image element
+            const image = document.createElement('img');
+            image.src = imageUrls[i];
+            card.appendChild(image);
 
-            const accordionBody = document.createElement('DIV');
-            accordionBody.setAttribute('class', 'accordion-body');
-            accordionBody.textContent = subtitle;
-            accordionContentDiv.appendChild(accordionBody);
+            // Create label element
+            const label = document.createElement('div');
+            label.classList.add('label');
+            label.textContent = imageLabels[i];
+            card.appendChild(label);
 
-
-            return accordionWrapper;
-
+            // Append card to imageSection
+            imageSection.appendChild(card);
         }
 
-        accordionFAQs.forEach((faq, index) => {
-            if (index < 5) {
-                accordionContainerLeft.append(createAccordion({ ...faq, index }));
-            } else {
-                accordionContainerRight.append(createAccordion({ ...faq, index }));
-            }
-        })
-    </script>
 
+    </script>
 </body>
 
 </html>
