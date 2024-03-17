@@ -5,7 +5,7 @@ function generateTabContent(tabIndex, images) {
             html += '<div class="row mt-4">';
         }
         html += '<div class="col-sm-4 mt-2 mt-md-0">';
-        html += '<img src="' + images[i] + '" class="img-fluid">';
+        html += '<img src="' + images[i].image + '" class="img-fluid">';
         html += '</div>';
         if ((i + 1) % 3 === 0 || i === images.length - 1) {
             html += '</div>'; //row close
@@ -19,8 +19,10 @@ fetch('http://localhost:8000/api/about/tab')
     .then(response => response.json())
     .then(data => {
         const tabContents = document.getElementById('myTabContent');
-        data.message.forEach((tabData, index) => {
-            const tabContent = generateTabContent(index, tabData);
+        const categories = ['All', 'Church', 'Donation', 'Charity', 'Education'];
+        categories.forEach((category, index) => {
+            const filteredImages = category === 'All' ? data.message : data.message.filter(image => image.category === category);
+            const tabContent = generateTabContent(index, filteredImages);
             tabContents.innerHTML += tabContent;
         });
 

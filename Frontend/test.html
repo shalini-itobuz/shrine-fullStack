@@ -1,99 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Card Images</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Gallery</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<style>
-    .grid-container {
-        display: grid;
-        gap: 20px;
-    }
-
-    .card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card img {
-        max-width: 100%;
-    }
-
-    .label {
-        margin-top: 10px;
-        text-align: center;
-    }
-    .grid-container {
-            grid-template-columns: repeat(1, 1fr);
-        }
-
-
-    @media (min-width: 768px) {
-        .grid-container {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .grid-container {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-</style>
-
 <body>
-    <section id="imageSection" class="grid-container"></section>
+    <div class="container mt-5">
+        <ul class="nav nav-tabs d-flex justify-content-evenly" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">All</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">Church</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab3-tab" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">Donation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab4-tab" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false">Charity</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab5-tab" data-toggle="tab" href="#tab5" role="tab" aria-controls="tab5" aria-selected="false">Education</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <!-- Dynamically generated tab content goes here -->
+        </div>
+    </div>
 
+    <!-- Bootstrap JS and your custom JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        const imageUrls = [
-            'image1.jpg',
-            'image2.jpg',
-            'image3.jpg',
-            'image4.jpg',
-            'image5.jpg',
-            'image6.jpg'
-        ];
-
-        // Array of image labels
-        const imageLabels = [
-            'Image 1',
-            'Image 2',
-            'Image 3',
-            'Image 4',
-            'Image 5',
-            'Image 6'
-        ];
-
-        // Get reference to the section
-        const imageSection = document.getElementById('imageSection');
-
-        // Loop through imageUrls array
-        for (let i = 0; i < imageUrls.length; i++) {
-            // Create div element for each image and label
-            const card = document.createElement('div');
-            card.classList.add('card');
-
-            // Create image element
-            const image = document.createElement('img');
-            image.src = imageUrls[i];
-            card.appendChild(image);
-
-            // Create label element
-            const label = document.createElement('div');
-            label.classList.add('label');
-            label.textContent = imageLabels[i];
-            card.appendChild(label);
-
-            // Append card to imageSection
-            imageSection.appendChild(card);
+        function generateTabContent(tabIndex, images) {
+            let html = '<div class="tab-pane fade show ' + (tabIndex === 0 ? 'active' : '') + '" id="tab' + (tabIndex + 1) + '" role="tabpanel" aria-labelledby="tab' + (tabIndex + 1) + '-tab">';
+            for (let i = 0; i < images.length; i++) {
+                if (i % 3 === 0) {
+                    html += '<div class="row mt-4">';
+                }
+                html += '<div class="col-sm-4 mt-2 mt-md-0">';
+                html += '<img src="' + images[i].image + '" class="img-fluid">';
+                html += '</div>';
+                if ((i + 1) % 3 === 0 || i === images.length - 1) {
+                    html += '</div>'; //row close
+                }
+            }
+            html += '</div>'; 
+            return html;
         }
 
+        fetch('http://localhost:8000/api/about/tab')
+            .then(response => response.json())
+            .then(data => {
+                const tabContents = document.getElementById('myTabContent');
+                const categories = ['All', 'Church', 'Donation', 'Charity', 'Education'];
+                categories.forEach((category, index) => {
+                    const filteredImages = category === 'All' ? data.message : data.message.filter(image => image.category === category);
+                    const tabContent = generateTabContent(index, filteredImages);
+                    tabContents.innerHTML += tabContent;
+                });
 
+                const tabLinks = document.querySelectorAll('.nav-link');
+                tabLinks.forEach((tabLink) => {
+                    tabLink.addEventListener('click', function () {
+                        const targetTabId = this.getAttribute('href');
+                        const targetTabContent = document.querySelector(targetTabId);
+                        const tabPanes = document.querySelectorAll('.tab-pane');
+                        tabPanes.forEach((tabPane) => {
+                            tabPane.classList.remove('active', 'show');
+                        });
+                        targetTabContent.classList.add('active', 'show');
+                    });
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
     </script>
 </body>
-
 </html>

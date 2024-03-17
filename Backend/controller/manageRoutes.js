@@ -4,6 +4,7 @@ import { aboutRoutes } from "../routes/about/about.js";
 import { faqRoutes } from "../routes/faq/faq.js";
 import { galleryRoutes } from "../routes/gallery/gallery.js";
 import { pastorRoutes } from "../routes/pastor/pastor.js";
+import { videoListingRoutes } from "../routes/videoListing/videolisting.js";
 export const manageRoutes=()=>{
     const router=Router();
 
@@ -12,5 +13,6 @@ export const manageRoutes=()=>{
     faqRoutes(router);
     galleryRoutes(router);
     pastorRoutes(router);
+    videoListingRoutes(router);
     return router;
 }
