@@ -5,6 +5,7 @@ import { faqRoutes } from "../routes/faq/faq.js";
 import { galleryRoutes } from "../routes/gallery/gallery.js";
 import { pastorRoutes } from "../routes/pastor/pastor.js";
 import { videoListingRoutes } from "../routes/videoListing/videolisting.js";
+import { eventsRoutes } from "../routes/events/events.js";
 export const manageRoutes=()=>{
     const router=Router();
 
@@ -14,5 +15,6 @@ export const manageRoutes=()=>{
     galleryRoutes(router);
     pastorRoutes(router);
     videoListingRoutes(router);
+    eventsRoutes(router);
     return router;
 }
