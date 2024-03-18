@@ -6,6 +6,7 @@ import { galleryRoutes } from "../routes/gallery/gallery.js";
 import { pastorRoutes } from "../routes/pastor/pastor.js";
 import { videoListingRoutes } from "../routes/videoListing/videolisting.js";
 import { eventsRoutes } from "../routes/events/events.js";
+import { blogRoutes } from "../routes/blog/blog.js";
 export const manageRoutes=()=>{
     const router=Router();
 
@@ -16,5 +17,6 @@ export const manageRoutes=()=>{
     pastorRoutes(router);
     videoListingRoutes(router);
     eventsRoutes(router);
+    blogRoutes(router);
     return router;
 }

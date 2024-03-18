@@ -1,0 +1,49 @@
+#anchor {
+    text-decoration: none;
+    color: inherit;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.text-gray {
+    color: #7a7a82;
+}
+
+.border-left-red {
+    background-color: #c0304f;
+    height: 140px;
+    width: 5px;
+}
+
+.border-radius-10 {
+    border-radius: 10px;
+}
+
+.bg-pink {
+    background-color: #ffe6e0;
+}
+
+.quotecontainer {
+    width: 80%;
+}
+
+.border-left-2 {
+    border-left: 2px solid gray;
+}
+
+.tags:hover {
+    background-color: #c0304f;
+    color: white;
+}
+
+@media(min-width:768px) {
+    .hopeHeading {
+        width: 50%;
+    }
+}
