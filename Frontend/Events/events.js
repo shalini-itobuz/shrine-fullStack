@@ -4,30 +4,46 @@ function displayCards(pageNumber, data) {
     const imageSection = document.getElementById('imageSection');
     imageSection.innerHTML = ''; // Clear existing cards
     
-    for (let i = startIndex; i < endIndex && i < data.message.length; i++) {
-        const imageUrl = data.message[i];
-        const imageDiv = document.createElement('div');
-        imageDiv.classList.add('col-12', 'col-sm-6', 'col-lg-4', 'justify-content-center', 'd-flex');
-        imageDiv.innerHTML = `
-            <div class="card position-relative z-3 hover-card bg-white" role="button">
-                <div class="position-relative">
-                    <img src="${imageUrl}" class="card-img-top" alt="event-card-image">
-                    <span class="calendar-card d-inline-block rounded-top-2 position-absolute bottom-0"></span>
-                </div>
-                <div class="card-body p-3">
-                    <p class="card-text fw-bold font-10">26.10.2013</p>
-                    <p class="d-flex gap-3 font-mysecondary">
-                        <span class="card-text fw-normal font-10"><img src="http://localhost:8000/images/events/eventsection/circle-time.svg" alt="circle time" width="15px"> 12:00 AM</span>
-                        <span class="card-text fw-normal font-10"><img src="http://localhost:8000/images/events/eventsection/location.svg" alt="location" width="15px"> Kingdom Church</span>
-                    </p>
-                    <h5 class="card-title my-2 ">Event Title</h5>
-                    <p class="card-text fw-normal font-mysecondary font-10 my-3">Description of the event goes here.</p>
-                    <a href="#" class="btn hover-button border border-2 border-black text-capitalize p-3 px-5">Learn More</a>
-                </div>
+ // Inside the loop where you create event cards
+for (let i = startIndex; i < endIndex && i < data.message.length; i++) {
+    const eventData = data.message[i];
+    const imageDiv = document.createElement('div');
+    imageDiv.classList.add('col-12', 'col-sm-6', 'col-lg-4', 'justify-content-center', 'd-flex');
+    imageDiv.innerHTML = `
+        <div class="card position-relative z-3 hover-card bg-white" role="button">
+            <div class="position-relative">
+                <img src="${eventData.img}" class="card-img-top" alt="event-card-image">
+                <span class="calendar-card d-inline-block rounded-top-2 position-absolute bottom-0"></span>
             </div>
-        `;
-        imageSection.appendChild(imageDiv);
-    }
+            <div class="card-body p-3">
+                <p class="card-text fw-bold font-10">${eventData.date}</p>
+                <p class="d-flex gap-3 font-mysecondary">
+                    <span class="card-text fw-normal font-10"><img src="http://localhost:8000/images/events/eventsection/circle-time.svg" alt="circle time" width="15px"> ${eventData.time}</span>
+                    <span class="card-text fw-normal font-10"><img src="http://localhost:8000/images/events/eventsection/location.svg" alt="location" width="15px"> ${eventData.location}</span>
+                </p>
+                <h5 class="card-title my-2 ">${eventData.title}</h5>
+                <p class="card-text fw-normal font-mysecondary font-10 my-3">${eventData.subtitle}</p>
+                <button class="btn hover-button border border-2 border-black text-capitalize p-3 px-5 join-now" data-event-id="${eventData.id}">Join Now</button>
+            </div>
+        </div>
+    `;
+    imageSection.appendChild(imageDiv);
+
+    // Add event listener to join now button
+    const joinNowButtons = document.querySelectorAll('.join-now');
+    joinNowButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const eventId = button.getAttribute('data-event-id');
+            redirectToEventDetailsPage(eventId);
+        });
+    });
+}
+
+function redirectToEventDetailsPage(eventId) {
+    // Redirect to the event details page with the event  ID as a parameter
+    window.location.href = `/Frontend/EventDetails/eventDetail.html?eventId=${eventId}`;
+}
+
 }
 
 function highlightActivePage(pageNumber) {
@@ -40,6 +56,9 @@ function highlightActivePage(pageNumber) {
         }
     });
 }
+
+
+
 
 fetch('http://localhost:8000/api/pages/events')
     .then(response => response.json())
@@ -57,3 +76,6 @@ fetch('http://localhost:8000/api/pages/events')
         });
     })
     .catch(error => console.error('Error fetching data:', error));
+ 
+    
+    

@@ -1,0 +1,14 @@
+#anchor {
+  text-decoration: none;
+  color: inherit;
+}
+
+.text-gray {
+  color: #7a7a82;
+}
+
+.border-left-red {
+  background-color: #c0304f;
+  height: 130px;
+  width: 5px;
+}/*# sourceMappingURL=eventDetail.css.map */
