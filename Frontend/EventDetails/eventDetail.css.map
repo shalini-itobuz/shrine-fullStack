@@ -1,1 +1,1 @@
-{"version":3,"sources":["eventDetail.scss","eventDetail.css"],"names":[],"mappings":"AAAA;EACI,qBAAA;EACA,cAAA;ACCJ;;ADEE;EACE,cAAA;ACCJ;;ADEE;EACE,yBAAA;EACA,aAAA;EACA,UAAA;ACCJ","file":"eventDetail.css"}
+{"version":3,"sources":["eventDetail.scss","eventDetail.css"],"names":[],"mappings":"AAAA;EACE,qBAAA;EACA,cAAA;ACCF;;ADEA;EACE,cAAA;ACCF;;ADEA;EACE,yBAAA;EACA,aAAA;EACA,UAAA;ACCF;;ADEA;EACE,kBAAA;EACA,cAAA;EACA,uBAAA;EACA,YAAA;ACCF;;ADEA;EAEE,yBAAA;EACA,YAAA;ACAF","file":"eventDetail.css"}

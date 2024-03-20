@@ -11,4 +11,16 @@
   background-color: #c0304f;
   height: 130px;
   width: 5px;
+}
+
+.event-buttons {
+  border-radius: 50%;
+  padding: 1% 2%;
+  background-color: white;
+  color: black;
+}
+
+.event-buttons:hover {
+  background-color: #c0304f;
+  color: white;
 }/*# sourceMappingURL=eventDetail.css.map */

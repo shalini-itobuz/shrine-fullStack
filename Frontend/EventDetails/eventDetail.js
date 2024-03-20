@@ -10,35 +10,39 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (eventData) {
                     const eventBookDiv = document.querySelector('.event-book-div');
                     eventBookDiv.innerHTML = `
-                        <div class="slogan">
+                        <div class="slogan ">
                             <h3>${eventData.slogan}</h3>
                         </div>
-                        <div class="desc">
-                            <p>${eventData.desc}</p>
+                        <div class="desc mb-5">
+                            <p class="text-gray">${eventData.desc}</p>
                         </div>
                         <div class="duration">
-                            <p>Duration: ${eventData.duration}</p>
+                       
+                            <p class="text-gray">  <img class="me-3"src="http://localhost:8000/images/eventDetails/calendar.png">${eventData.duration}</p>
                         </div>
                         <div class="time">
-                            <p>Time: ${eventData.time}</p>
+                            <p class="text-gray"> <img class="me-3"src="http://localhost:8000/images/eventDetails/clock.png">${eventData.timeDuration}</p>
                         </div>
                         <div class="location">
-                            <p>Location: ${eventData.location}</p>
+                            <p class="text-gray"> <img class="me-3"src="http://localhost:8000/images/eventDetails/map.png">${eventData.location}</p>
                         </div>
+                        <div class="bottomslogan mb-5">
+                        <p class="text-gray"> <img class="me-3"src="http://localhost:8000/images/eventDetails/document.png"> ${eventData.slogan}</p>
+                    </div>
                         <div class="booking-button">
-                            <button class="btn btn-primary book-now" data-event-id="${eventData.id}">Book Now</button>
+                            <button class="btn bg-black text-white px-3 py-2 book-now mb-4" data-event-id="${eventData.id}">Booking Now</button>
                         </div>
-                        <div class="desc">
-                            <p>${eventData.desc}</p>
-                        </div>
+                        <div class="conclusion">
+                        <p class="text-gray"> ${eventData.conclusion}</p>
+                    </div>
                         <div class="points">
-                            <ul>
+                            <ol>
                                 <li>${eventData.points[1]}</li>
                                 <li>${eventData.points[2]}</li>
                                 <li>${eventData.points[3]}</li>
-                            </ul>
+                            </ol>
                         </div>
-                        <div class="conclusion">
+                        <div class="conclusion text-gray">
                             <p>${eventData.conclusion}</p>
                         </div>
                     `;
